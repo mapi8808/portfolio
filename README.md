@@ -23,9 +23,15 @@
 スイーツショップが新商品を発表したとき、お客様に宣伝するために投稿する。
 
 ## 設計書
+・アプリケーション詳細設計書
+https://docs.google.com/spreadsheets/d/1k-8sLlZshPFWke95rF-uRWu7yplR3iC9qYQlDIbKQZE/edit#gid=0
+## WBSシート
+https://docs.google.com/spreadsheets/d/1WgTGmKBKXPBX8ndkmNynBUBnsSdXTxxMIrSJ7VAuDWM/edit#gid=977420151
 
 ## 機能一覧
 https://docs.google.com/spreadsheets/d/1xLebXf5XK8hZ2M3gr1jDW2u8UyPSZkEiGZyu2t8wzK4/edit#gid=1089739000
+
+
 
 ## 開発環境
 - OS：Linux(CentOS)
