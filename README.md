@@ -1,24 +1,42 @@
-# README
+# swefo♫（スイフォ）
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+おすすめスイーツの情報投稿・検索サイト
+都道府県別やスイーツのジャンルごとに情報を検索できる。また、お店のリンク先を記載することで、そのまま調べていたお店に移動可能。
+サイト名の由来は「スイーツ・インフォメーション」として情報検索のために活用し、スイーツでみなさんにホット一息ついていただきたいので、スイっと情報を検索できるように、「swefo♫」と名付けました。
 
-Things you may want to cover:
+### サイトテーマ
+「近所で購入できる美味しいスイーツが知りたい。」と思っている方に対して、情報を伝えることで
+お互いに知らなかったスイーツを知ることができたり、感想を伝えて共感し合うコンセプト。
 
-* Ruby version
+### テーマを選んだ理由
+私自身、美味しいものを食べることや料理を作ることが好きであることや、現在勉強中であり今まで学んだ
+プログラミングスキルを活用してアプリケーションを作成し、情報共有できると面白いのでは？と思ったので、
+今回このポートフォリオを作成する流れに至りました。
 
-* System dependencies
+### ターゲットユーザ
+美味しいスイーツが食べたい方や、お土産に持参するスイーツが分からなくて困っている一般ユーザ。
+新商品を宣伝したいスイーツショップ店員。
 
-* Configuration
+### 主な利用シーン
+お客様が購入したいスイーツを検索し、当てはまった情報について調べることができる。
+スイーツショップが新商品を発表したとき、お客様に宣伝するために投稿する。
 
-* Database creation
+## 設計書
+・アプリケーション詳細設計書
+https://docs.google.com/spreadsheets/d/1k-8sLlZshPFWke95rF-uRWu7yplR3iC9qYQlDIbKQZE/edit#gid=0
+## WBSシート
+https://docs.google.com/spreadsheets/d/1WgTGmKBKXPBX8ndkmNynBUBnsSdXTxxMIrSJ7VAuDWM/edit#gid=977420151
 
-* Database initialization
+## 機能一覧
+https://docs.google.com/spreadsheets/d/1xLebXf5XK8hZ2M3gr1jDW2u8UyPSZkEiGZyu2t8wzK4/edit#gid=1089739000
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* ...
