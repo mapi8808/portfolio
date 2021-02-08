@@ -6,4 +6,6 @@ class User < ApplicationRecord
   
   #商品テーブルと関連付け 
   has_many :products, dependent: :destroy 
+  # ショップテーブルと関連付け
+  has_many :shops, dependent: :destroy
 end
