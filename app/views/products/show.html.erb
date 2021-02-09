@@ -1,0 +1,17 @@
+<!--<div class="container">-->
+  <!--<div class="row">-->
+    <!--<div class="col-md-12">-->
+            <div class="users-products-show1">
+               <%= attachment_image_tag @product, :image,  size: "300x200", fallback: "cake.jpg" %>
+               <table class = "users-products-show" >
+                  <tr>
+                     <td><h3 class="product-name"><%= @product.name %></h3></td>
+                     <td><h3 class="product-body"><%= @product.body %></h3></td>
+                     <td><h3 class="product-price">¥<%= @product.amounts %>(税抜き)</h3></td>
+                  </tr>
+               </table>
+               
+            </div>
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->

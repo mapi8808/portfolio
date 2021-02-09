@@ -1,0 +1,19 @@
+<!--<div class="container">-->
+  <!--<div class="row">-->
+    <!--<div class="col-md-12">-->
+      <h2 class="marker">商品一覧</h2>
+      <div class="users-products">
+          <% @products.each do |product| %>
+        <div class="public-products1">
+          <h4 class="shops-name"><%= shop.name %></h4>
+          <p><%= link_to product.name, product_path(product) %></p>
+          <h4 class="product-body"><%= product.body %></h4>
+          <h4 class="product-price">¥<%= product.amounts %></h4>
+          
+        </div>
+          <% end %>
+      </div>
+          <%= link_to '一覧TOPに戻る', products_path %>
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
