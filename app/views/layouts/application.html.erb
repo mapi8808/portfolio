@@ -4,52 +4,52 @@
     <title>Swefo♫</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <!--ログイン中なら上記。違うならelse以下を表示-->
   <body>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "当サイトについて", about_path %>
-      </li>
-      <li>
-        <%= link_to "ユーザーマイページ", user_path %>
-      </li>
-      <li>
-        <%= link_to "商品一覧", products_path %>
-      </li>
-      <li>
-        <%= link_to "商品情報投稿", new_product_path %>
-      </li>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-      <li>
-        <%= link_to "お問い合わせ", contact_path %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "当サイトについて", about_path %>
-      </li>
-      <li>
-        <%= link_to "商品一覧", products_path %>
-      </li>
-      <li>
-        <%= link_to "商品情報投稿", new_product_path %>
-      </li>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-      <li>
-        <%= link_to "お問い合わせ", contact_path %>
-      </li>
-    <% end %>
+    <header class="shadow-sm">
+      <div class="container">
+        <a class="navbar-brand" href="/"><span>Swefo♫</span></a>
+        <% if user_signed_in? %>
+          <li><%= link_to "当サイトについて", about_path %></li>
+          <li><%= link_to "ユーザーマイページ", user_path %></li>
+          <li><%= link_to "商品一覧", products_path %></li>
+          <li><%= link_to "商品情報投稿", new_product_path %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "お問い合わせ", contact_path %></li>
+        <% else %>
+          <li><%= link_to "当サイトについて", about_path %></li>
+          <li><%= link_to "商品一覧", products_path %></li>
+          <li><%= link_to "商品情報投稿", new_product_path %></li>
+          <li><%= link_to "新規登録", new_user_registration_path %></li>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+          <li><%= link_to "お問い合わせ", contact_path %>
+          </li>
+        <% end %>
+    </header>
     <%= yield %>
+  </body>
+  <footer class="bg-pink text-white pt-5 pb-4">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-8">
+            <ul class="p-0 list-unstyled">
+              <li>
+                <a href="" title="About" class="text-white-50">会社概要</a>
+              </li>
+              <li>
+                <a href="" title="License informations" class="text-white-50">プライバシーポリシー</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

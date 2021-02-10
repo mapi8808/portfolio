@@ -5,12 +5,25 @@
                <%= attachment_image_tag @product, :image,  size: "300x200", fallback: "cake.jpg" %>
                <table class = "users-products-show" >
                   <tr>
-                     <td><h3 class="product-name"><%= @product.name %></h3></td>
-                     <td><h3 class="product-body"><%= @product.body %></h3></td>
-                     <td><h3 class="product-price">¥<%= @product.amounts %>(税抜き)</h3></td>
+                     <td><h3 class="shop-name">店舗名<%= @shop.name %></h3></td>
+                     <td><h3 class="product-name">商品名<%= @product.name %></h3></td>
+                     <td><h3 class="product-body">商品説明<%= @product.body %></h3></td>
+                     <td><h3 class="product-price">価格<%= @product.amounts %>円(税抜き)</h3></td>
                   </tr>
-               </table>
-               
+              </table>
+              <% if @product.favorited_by?(current_user) %>
+                <p>
+                  <%= link_to product_favorites_path(@product), method: :delete do %>
+                  ♥<%= @product.favorites.count %> いいね
+                  <% end %>
+                </p>
+              <% else %>
+                <p>
+                  <%= link_to product_favorites_path(@product), method: :post do %>
+                  ♡<%= @product.favorites.count %> いいね
+                  <% end %>
+              </p>
+              <% end %>
             </div>
     <!--</div>-->
   <!--</div>-->

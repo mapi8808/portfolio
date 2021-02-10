@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :products, dependent: :destroy 
   # ショップテーブルと関連付け
   has_many :shops, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 end

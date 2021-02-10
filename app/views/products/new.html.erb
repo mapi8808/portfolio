@@ -1,15 +1,28 @@
 <h2>商品情報登録</h2>
 <%= form_with model:@product, url: products_path, local:true, method: :patch do |f| %>
-<h4 class='product-image'>画像</h4>
-<%= f.attachment_field :image %>
-<h4 class="shop-name">店舗名</h4>
-<%= f.text_field :shop_name %>
-<h4 class="product-name">商品名</h4>
-<%= f.text_field :product_name %>
-<h4 class="body">商品説明</h4>
-<%= f.text_area :body %>
-<h4 class="amounts">価格</h4>
-<%= f.text_field :amounts %>
-
-<%= f.submit '内容を保存' %>
+<table>
+  <tr>
+    <td><h4 class='product-image'>画像</h4></td>
+    <td><%= f.attachment_field :image %></td>
+  </tr>
+  <tr>
+    <td><h4 class="shop-name">店舗名</h4></td>
+    <td><%= f.text_field :shop_name %></td>
+  </tr>
+  <tr>
+    <td><h4 class="product-name">商品名</h4></td>
+    <td><%= f.text_field :product_name %></td>
+  </tr>
+  <tr>
+    <td><h4 class="body">商品説明</h4></td>
+    <td><%= f.text_area :body %></td>
+  </tr>
+  <tr>
+    <td><h4 class="amounts">価格</h4></td>
+    <td><%= f.text_field :amounts %></td>
+  </tr>
+  <tr>
+    <td><%= f.submit '内容を保存' %></td>
+  </tr>
+</table>
 <% end %>
