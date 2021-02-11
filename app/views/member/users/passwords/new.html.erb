@@ -1,0 +1,17 @@
+<!--メールアドレス忘れた時の画面を日本語に-->
+<h2>パスワードをお忘れの方へ</h2>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "member/users/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label 'メールアドレス' %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "メール送付（パスワード変更手続き）" %>
+  </div>
+<% end %>
+
+<%= render "member/users/shared/links" %>

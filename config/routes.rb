@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'about' => 'homes#about'
   get 'contact' => 'homes#contact'
+  #resources :products, only[:index, :show]
   
   devise_for :users, controllers: {
-  sessions: 'mamber/users/sessions',
+  sessions: 'member/users/sessions',
   passwords: 'member/users/passwords',
   registrations: 'member/users/registrations',
   }
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: {
   sessions: 'admins/sessions',
   passwords: 'admins/passwords',
-  registrations: 'public/users/registrations',
+  registrations: 'admins/registrations',
   }
   
   scope module: :member do
