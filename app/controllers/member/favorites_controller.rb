@@ -1,4 +1,4 @@
-class FavoritesController < ApplicationController
+class Member::FavoritesController < ApplicationController
   
   def create
     product = Product.find(params[:product_id])
