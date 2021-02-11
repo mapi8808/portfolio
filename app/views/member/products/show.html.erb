@@ -11,6 +11,24 @@
                      <td><h3 class="product-price">価格<%= @product.amounts %>円(税抜き)</h3></td>
                   </tr>
               </table>
+              <div class="comments">
+                <p>コメント件数：<%= @product.product_comments.count %></p>
+                  <% @product.product_comments.each do |product_comment| %>
+                    <%= product_comment.user.name %>
+                    <%= product_comment.created_at.strftime('%Y/%m/%d') %><%= product_comment.comment %>
+                    <% if post_comment.user == current_user %>
+                      <div class="comment-delete">
+                        <%= link_to "削除", product_product_comment_path(product_comment.product, product_comment), method: :delete %>
+                      </div>
+                    <% end %>
+                  <% end %>
+              </div>
+              <div class="new-comment">
+                <%= form_with(model:[@product, @product_comment], local: true) do |f| %>
+                  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+                  <%= f.submit "送信する" %>
+                <% end %>
+              </div>
               <% if @product.favorited_by?(current_user) %>
                 <p>
                   <%= link_to product_favorites_path(@product), method: :delete do %>
