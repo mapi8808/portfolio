@@ -11,5 +11,6 @@
    email: 'test@test.com',
    password: 'testtest'
   )
+#  ホーム画面で、urlの最後に右記を入力：　 /admins/sign_in
   
  

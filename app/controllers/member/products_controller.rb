@@ -1,4 +1,5 @@
 class Member::ProductsController < ApplicationController
+  # メンバー会員の内容
   
   def index
     @products = Product.all

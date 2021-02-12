@@ -1,4 +1,5 @@
 class Member::UsersController < ApplicationController
+  # メンバー会員（店員も）の内容
 
   def show
     @user = User.find(params[:id])

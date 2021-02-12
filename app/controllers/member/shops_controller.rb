@@ -1,4 +1,5 @@
 class Member::ShopsController < ApplicationController
+  # メンバー会員（店舗情報）の内容
 
   def show
     @shop = Shop.find(params[:id])

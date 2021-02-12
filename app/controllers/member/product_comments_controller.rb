@@ -1,4 +1,5 @@
 class Member::ProductCommentsController < ApplicationController
+  # メンバー会員（店員）がコメントするためのコントローラ
   
   def create
     product = Product.find(params[:product_id])

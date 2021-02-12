@@ -1,4 +1,5 @@
 class Member::FavoritesController < ApplicationController
+  # メンバー会員（店員）の内容、いいねするにはメンバー登録要
   
   def create
     product = Product.find(params[:product_id])
