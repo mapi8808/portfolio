@@ -3,6 +3,11 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "member/users/shared/error_messages", resource: resource %>
+  
+  <div class="field">
+    <%= f.label 'ユーザー名' %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
 
   <div class="field">
     <%= f.label 'メールアドレス' %><br />
@@ -22,7 +27,7 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
   
-  <div class="button">
+  <div class="shop-button">
   <%= f.label 'スイーツ店舗の管理者ですか？' %>
   <%= f.check_box(:admin_flag, {selected: true}, true, false) %>
   <!--ラジオボタン追加-->
@@ -32,5 +37,6 @@
     <%= f.submit "内容を登録" %>
   </div>
 <% end %>
+
 
 <%= render "member/users/shared/links" %>

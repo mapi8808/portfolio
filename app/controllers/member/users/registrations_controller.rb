@@ -55,6 +55,17 @@ class Member::Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
+  # 店舗管理者にチェックが入っていたら、店舗情報登録画面へ
+  def after_sign_up_path_for(resource)
+    if current_user.admin_flag.present?
+      #byebug
+      new_shop_path
+      #"/shops/new"
+    else
+      root_path
+    end
+  end
+
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)

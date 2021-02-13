@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
 
   protected
 # ユーザ登録（sign_up）の際に、ユーザ名（name）のデータ操作が許可される
+# admin_flagを追加して、記録を残すようにした。
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :admin_flag])
   end
 end
