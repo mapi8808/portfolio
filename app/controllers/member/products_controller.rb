@@ -1,5 +1,6 @@
 class Member::ProductsController < ApplicationController
   # メンバー会員の内容
+  # before関連入力　バリデーション カリキュラム参照
   
   def index
     @products = Product.all

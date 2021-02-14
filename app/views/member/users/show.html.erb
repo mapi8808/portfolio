@@ -10,6 +10,18 @@
 </tr>
 </table>
 
+<table class = "shop-show" >
+  <tr>
+    <td><h4 class="product-name">商品名</h4><%= @shop.name %></td>
+    <td><h4 class="shop-address">店舗住所</h4><%= @shop.address %></td>
+    <td><h4 class="shop-admin-email">店舗管理者メール</h4><%= @shop.admin_email %></td>
+    <td><h4 class="shop-tel">TEL</h4><%= @shop.tel %></td>
+    <td><h4 class="shop-hours">営業時間</h4><%= @shop.hours %></td>
+    <td><h4 class="shop-holiday">休業日</h4><%= @shop.holiday %></td>
+    <td><h4 class="shop-password">店舗パスワード</h4><%= @shop.password %></td>
+  </tr>
+</table>
+
 </div>
 <div class="user-show2">
 <%= link_to "編集する", edit_user_path(@user) %>
