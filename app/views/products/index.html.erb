@@ -1,6 +1,6 @@
  <h2 class="marker">商品一覧</h2>
       <div class="member-products">
-          <% @products.each do |product| %>
+        <% @products.each do |product| %>
         <div class="public-products1">
               <%= link_to product_path(product.id) do %>
                   <%= attachment_image_tag product, :image, size:'235x180' ,  fallback: "cake.jpg" %>

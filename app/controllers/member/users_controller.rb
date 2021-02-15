@@ -3,10 +3,12 @@ class Member::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @shop = current_user
   end
 
   def edit
     @user = User.find(params[:id])
+    @shop = current_user
   end
 
   def quit
@@ -24,7 +26,7 @@ class Member::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :name,)
+    params.require(:user).permit(:email, :name, :user_status, :admin_flag)
   end
 
 

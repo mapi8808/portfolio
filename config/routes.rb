@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  get 'products/index'
   # get 'products/show'
   root to: 'homes#top'
   get 'about' => 'homes#about'
   get 'contact' => 'homes#contact'
   # resources :products, only: [:index, :show]
+  get 'products/index'
   
   devise_for :users, controllers: {
   sessions: 'member/users/sessions',

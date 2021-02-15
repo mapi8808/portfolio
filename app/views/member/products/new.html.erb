@@ -1,13 +1,9 @@
 <h2>商品情報登録</h2>
-<%= form_with model:@product, url: products_path, local:true, method: :patch do |f| %>
+<%= form_with model:@product, url: products_path, local: true do |f| %>
 <table>
   <tr>
     <td><h4 class='product-image'>画像</h4></td>
     <td><%= f.attachment_field :image %></td>
-  </tr>
-  <tr>
-    <td><h4 class="shop-name">店舗名</h4></td>
-    <td><%= f.text_field :shop_name %></td>
   </tr>
   <tr>
     <td><h4 class="product-name">商品名</h4></td>
