@@ -3,12 +3,12 @@ class Member::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @shops = @user.shops
+    @shop = @user.shop
   end
 
   def edit
     @user = User.find(params[:id])
-    @shops = @user.shops
+    @shop = @user.shop
   end
 
   def quit
