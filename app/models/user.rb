@@ -4,10 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  #商品テーブルと関連付け 
-  has_many :products, dependent: :destroy 
   # ショップテーブルと関連付け
   has_many :shops, dependent: :destroy
-  has_many :favorites, dependent: :destroy
   has_many :product_comments, dependent: :destroy
+  # has_oneは、一人だけのデータを紐付ける。
 end

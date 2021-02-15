@@ -26,6 +26,9 @@
             <li><%= link_to "お問い合わせ", contact_path %></li>
           <% elsif admin_signed_in? %>
             <!--サイト管理者ログイン時-->
+            <li><%= link_to "商品 一覧", admin_products_path %></li>
+            <li><%= link_to "ユーザー 一覧", admin_users_path %></li>
+            <li><%= link_to "ジャンル 一覧", admin_genres_path %></li>
             <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
           <% else %>
             <li><%= link_to "当サイトについて", about_path %></li>
