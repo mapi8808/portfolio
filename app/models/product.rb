@@ -1,7 +1,9 @@
 class Product < ApplicationRecord
   # ユーザーテーブルと関連付け
   belongs_to :user
+  belongs_to :shop
   attachment :image
+  belongs_to :genre
   has_many :favorites, dependent: :destroy
   has_many :product_comments, dependent: :destroy
   

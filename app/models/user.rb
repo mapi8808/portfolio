@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   # ショップテーブルと関連付け
   has_one :shop, dependent: :destroy
+  has_many :product, dependent: :destroy
   has_many :product_comments, dependent: :destroy
   # has_oneは、一人だけのデータを紐付ける。
 end
