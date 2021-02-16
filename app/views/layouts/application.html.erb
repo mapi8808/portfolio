@@ -21,7 +21,10 @@
             <li><%= link_to "当サイトについて", about_path %></li>
             <li><%= link_to "ユーザーマイページ", user_path(current_user.id) %></li>
             <li><%= link_to "商品一覧", products_path %></li>
+            <!--店舗管理者なら、商品情報新規登録できるように表示-->
+            <% if current_user.admin_flag %>
             <li><%= link_to "商品情報投稿", new_product_path %></li>
+            <% end %>
             <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             <li><%= link_to "お問い合わせ", contact_path %></li>
           <% elsif admin_signed_in? %>

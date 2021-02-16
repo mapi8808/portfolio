@@ -4,11 +4,13 @@ class Member::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @shop = @user.shop
+    # 店舗ユーザーが登録した店舗情報
   end
 
   def edit
     @user = User.find(params[:id])
     @shop = @user.shop
+    # 店舗ユーザーが登録した店舗情報
   end
 
   def quit
@@ -16,7 +18,7 @@ class Member::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    user.update(user_params)
+    @user.update(user_params)
     redirect_to user_path
   end
 

@@ -1,27 +1,55 @@
 <div class="user-show1">
-<table class = "users-show" >
-<tr>
-<td>ユーザー名</td>
-<td><h5 class="user-name"><%= @user.name %></h5></td>
-</tr>
-<tr>
-<td>メールアドレス</td>
-<td><h5 class="email"><%= @user.email %></h5></td>
-</tr>
-</table>
+  <table class = "users-show" >
+    <h3>ユーザー情報</h3>
+      <tr>
+        <td>ユーザー名</td>
+        <td><h5 class="user-name"><%= @user.name %></h5></td>
+      </tr>
+      <tr>
+        <td>メールアドレス</td>
+        <td><h5 class="email"><%= @user.email %></h5></td>
+      </tr>
+  </table>
+  
+  <div>
+    <%= link_to "ユーザー情報編集", edit_user_path(current_user.id) %>
+  </div>
 
-<table class = "shop-show" >
-  <tr>
-    <td><h4 class="product-name">店舗名</h4><%= @shop.shop_name %></td>
-    <td><h4 class="shop-address">店舗住所</h4><%= @shop.address %></td>
-    <td><h4 class="shop-admin-email">店舗管理者メール</h4><%= @shop.admin_email %></td>
-    <td><h4 class="shop-tel">TEL</h4><%= @shop.tel %></td>
-    <td><h4 class="shop-hours">営業時間</h4><%= @shop.hours %></td>
-    <td><h4 class="shop-holiday">休業日</h4><%= @shop.holiday %></td>
-  </tr>
-</table>
-
-</div>
-<div class="user-show2">
-<%= link_to "編集する", edit_user_path(current_user.id) %>
+  <!--新規登録で店舗管理者（admin_flag）にチェックを入れていたら店舗情報表示-->
+  <% if current_user.admin_flag %>
+  <table class = "shop-show" >
+    <h3>登録店舗情報</h3>
+      <tr>
+        <td>店舗名</td>
+        <td><h4 class="shop-name"><%= @shop.shop_name %></h4></td>
+      </tr>
+      <tr>
+        <td>店舗住所</td>
+        <td><h4 class="shop-address"><%= @shop.address %></h4></td>
+      </tr>
+      <tr>
+        <td>電話番号</td>
+        <td><h4 class="shop-tel"><%= @shop.tel %></h4></td>
+      </tr>
+      <tr>
+        <td>店舗メールアドレス</td>
+        <td><h4 class="shop-admin-email"><%= @shop.admin_email %></h4></td>
+      </tr>
+      <tr>
+        <td>店舗URL</td>
+        <td><h4 class="shop-url"><%= @shop.url %></h4></td>
+      </tr>
+      <tr>
+        <td>営業時間</td>
+        <td><h4 class="shop-hours"><%= @shop.hours %></h4></td>
+      </tr>
+      <tr>
+        <td>休業日</td>
+        <td><h4 class="shop-holiday"><%= @shop.holiday %></h4></td>
+      </tr>
+  </table>
+  <div>
+    <%= link_to "店舗情報編集", edit_shop_path(@shop.id) %>
+  </div>
+  <% end %>
 </div>
