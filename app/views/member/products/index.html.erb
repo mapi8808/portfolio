@@ -1,15 +1,16 @@
-<!--<div class="container">-->
+ <!--<div class="container">-->
   <!--<div class="row">-->
     <!--<div class="col-md-12">-->
       <h2 class="marker">商品一覧</h2>
       <div class="users-products">
           <% @products.each do |product| %>
-        <div class="public-products1">
-          <h4 class="shops-name"><%= product.product_name %></h4>
-          <p><%= link_to product.product_name, product_path(product) %></p>
-          <h4 class="product-body"><%= product.body %></h4>
-          <h4 class="product-price">¥<%= product.amounts %></h4>
-        </div>
+            <% shop = product.shop %>
+            <div class="public-products1">
+              <h5 class="shop-name">店舗名：<%= shop.shop_name %></h5>
+              <h5 class="product-name">商品名<%= link_to product.product_name, product_path(product) %></h5>
+              <h6 class="product-body">商品説明：<%= product.body %></h6>
+              <h4 class="product-price">価格：<%= product.amounts %>円</h4>
+            </div>
           <% end %>
       </div>
           <%= link_to '一覧TOPに戻る', products_path %>

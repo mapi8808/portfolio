@@ -1,0 +1,9 @@
+<h2>Infomation</h2>
+<% if user == current_user %>
+  <table class = "table">
+    <th>ようこそ、<%= user.name %>さん</th>
+    <th>新規登録すると、商品情報を検索できます。</th>
+  </table>
+<% end %>
+
+<%= render 'member/users/sideber', user: @user%>

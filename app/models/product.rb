@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   # ユーザーテーブルと関連付け
   belongs_to :user
-  belongs_to :shop, optional: true
+  belongs_to :shop
   # optional: trueを使ってshopのidをnillでも入力可能に。（そもそも一般ユーザー側で新規登録できないようにビューに反映していない。）。
   attachment :image
   belongs_to :genre

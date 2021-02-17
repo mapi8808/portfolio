@@ -7,6 +7,7 @@
                   <tr>
                     <td>店舗名</td>
                     <td><h4 class="shop-name"><%= @shop.shop_name %></h4></td>
+                    <td><%= link_to '店舗詳細へ', shop_path(@shop.id), class:"show_#{@shop.id}", class:"btn btn-success" %></td>
                   </tr>
                   <tr>
                     <td>店舗住所</td>
@@ -29,7 +30,6 @@
                     <td><h4 class="product-price"><%= @product.amounts %>円(税抜き)</h4></td>
                   </tr>
               </table>
-              
             
               <% if @product.favorited_by?(current_user) %>
                 <p>
@@ -45,6 +45,11 @@
               </p>
               <% end %>
             </div>
+            <tr>
+              <%= link_to "商品情報編集", edit_product_path(@product.id), class:"btn btn-primary" %>
+              <%= link_to '商品一覧へ戻る', products_path, class:"btn btn-secondary" %>
+            </tr>
+            
     <!--</div>-->
   <!--</div>-->
 <!--</div>-->

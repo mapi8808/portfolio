@@ -20,11 +20,11 @@ Rails.application.routes.draw do
   
   scope module: :member do
     resources :users, only: [:show, :edit, :quit, :update, :goodbye]
+    resources :shops, only: [:show, :edit, :new, :create, :update, :destroy]
     resources :products do
       resource :favorites, only: [:create, :destroy]
       resources :product_comments, only: [:create, :destroy]
     end
-    resources :shops, only: [:show, :edit, :new, :create, :update, :destroy]
   end
   
   namespace :admin do
