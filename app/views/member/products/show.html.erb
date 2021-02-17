@@ -2,33 +2,35 @@
   <!--<div class="row">-->
     <!--<div class="col-md-12">-->
             <div class="users-products-show1">
-               <%= attachment_image_tag @product, :image,  size: "300x200", fallback: "cake.jpg" %>
+    
                <table class = "users-products-show" >
                   <tr>
-                     <td><h3 class="shop-name">店舗名<%= @shop.name %></h3></td>
-                     <td><h3 class="product-name">商品名<%= @product.name %></h3></td>
-                     <td><h3 class="product-body">商品説明<%= @product.body %></h3></td>
-                     <td><h3 class="product-price">価格<%= @product.amounts %>円(税抜き)</h3></td>
+                    <td>店舗名</td>
+                    <td><h4 class="shop-name"><%= @shop.shop_name %></h4></td>
+                  </tr>
+                  <tr>
+                    <td>店舗住所</td>
+                    <td><h4 class="shop-address"><%= @shop.address %></h4></td>
+                  </tr>
+                  <tr>
+                    <td>店舗URL</td>
+                    <td><h4 class="shop-url"><%= @shop.url %></h4></td>
+                  </tr>
+                  <tr>
+                    <td>商品名</td>
+                    <td><h4 class="product-name"><%= @product.product_name %></h4></td>
+                  </tr>
+                  <tr>
+                    <td>商品説明</td>
+                    <td><h4 class="product-body"><%= @product.body %></h4></td>
+                  </tr>
+                  <tr>
+                    <td>価格</td>
+                    <td><h4 class="product-price"><%= @product.amounts %>円(税抜き)</h4></td>
                   </tr>
               </table>
-              <div class="comments">
-                <p>コメント件数：<%= @product.product_comments.count %></p>
-                  <% @product.product_comments.each do |product_comment| %>
-                    <%= product_comment.user.name %>
-                    <%= product_comment.created_at.strftime('%Y/%m/%d') %><%= product_comment.comment %>
-                    <% if post_comment.user == current_user %>
-                      <div class="comment-delete">
-                        <%= link_to "削除", product_product_comment_path(product_comment.product, product_comment), method: :delete %>
-                      </div>
-                    <% end %>
-                  <% end %>
-              </div>
-              <div class="new-comment">
-                <%= form_with(model:[@product, @product_comment], local: true) do |f| %>
-                  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-                  <%= f.submit "送信する" %>
-                <% end %>
-              </div>
+              
+            
               <% if @product.favorited_by?(current_user) %>
                 <p>
                   <%= link_to product_favorites_path(@product), method: :delete do %>

@@ -18,6 +18,10 @@
     <td><%= f.text_field :amounts %></td>
   </tr>
   <tr>
+    <td><%= f.label 'ジャンル' %></td>
+    <td><%= f.collection_select :genre_id, Genre.all, :id, :name %></td>
+  </tr>
+  <tr>
     <td><%= f.submit '内容を保存' %></td>
   </tr>
 </table>

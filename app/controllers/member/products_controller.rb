@@ -11,7 +11,7 @@ class Member::ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @shop = Shop.find(params[:id])
-    @product_comment = ProductComment.new
+    # @product_comment = ProductComment.new
   end
   
   def edit
