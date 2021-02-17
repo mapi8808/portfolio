@@ -5,11 +5,10 @@
       <div class="users-products">
           <% @products.each do |product| %>
         <div class="public-products1">
-          <h4 class="shops-name"><%= shop.name %></h4>
-          <p><%= link_to product.name, product_path(product) %></p>
+          <h4 class="shops-name"><%= product.product_name %></h4>
+          <p><%= link_to product.product_name, product_path(product) %></p>
           <h4 class="product-body"><%= product.body %></h4>
           <h4 class="product-price">¥<%= product.amounts %></h4>
-          <p><%= link_to "#{product.product_comments.count} コメント", product_path(product.id) %></p>
         </div>
           <% end %>
       </div>

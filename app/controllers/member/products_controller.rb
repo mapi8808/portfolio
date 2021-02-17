@@ -5,7 +5,7 @@ class Member::ProductsController < ApplicationController
   
   def index
     @products = Product.all
-    # @shops = @users.shop
+    @shops = Shop.all
   end
   
   def show
