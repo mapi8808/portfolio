@@ -1,0 +1,13 @@
+ <h2 class="marker">商品一覧</h2>
+      <div class="users-products">
+          <% @products.each do |product| %>
+            <% shop = product.shop %>
+            <div class="public-products1">
+              <h5 class="shop-name">店舗名：<%= shop.shop_name %></h5>
+              <h5 class="product-name">商品名<%= link_to product.product_name, admin_product_path(product) %></h5>
+              <h6 class="product-body">商品説明：<%= product.body %></h6>
+              <h4 class="product-price">価格：<%= product.amounts %>円</h4>
+            </div>
+          <% end %>
+      </div>
+          <%= link_to '一覧TOPに戻る', admin_products_path %>

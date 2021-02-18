@@ -1,6 +1,6 @@
 <h2>店舗情報登録</h2>
 <% if current_user.admin_flag %>
-  <%= form_with model: @shop, url: shops_path, local: true do |f| %>
+  <%= form_with model:@shop, local: true do |f| %>
     <div>
       <h4 class="shop-name">店舗名</h4>
       <%= f.text_field :shop_name %>

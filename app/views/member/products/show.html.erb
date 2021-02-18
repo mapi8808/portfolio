@@ -46,7 +46,9 @@
               <% end %>
             </div>
             <tr>
+              <% if current_user %>
               <%= link_to "商品情報編集", edit_product_path(@product.id), class:"btn btn-primary" %>
+              <% end %>
               <%= link_to '商品一覧へ戻る', products_path, class:"btn btn-secondary" %>
             </tr>
             

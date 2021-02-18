@@ -1,0 +1,19 @@
+<div class="user-show1">
+  <h3 class="marker">ユーザー 一覧</h3>
+  <% @users.each do |user| %>
+  <table class = "users-show" >
+  
+      <tr>
+        <td>ユーザー名</td>
+        <td><h5 class="user-name"><%= link_to user.name, admin_user_path(user) %></h5></td>
+      </tr>
+      <tr>
+        <td>メールアドレス</td>
+        <td><h5 class="email"><%= user.email %></h5></td>
+      </tr>
+  </table>
+  <!--新規登録で店舗管理者（admin_flag）にチェックを入れていたら店舗情報表示-->
+  
+  <% end %>
+</div>
+<%= link_to 'TOPに戻る', root_path %>

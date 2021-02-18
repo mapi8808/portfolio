@@ -1,0 +1,34 @@
+<div class="users-products-show1">
+  <h3>商品詳細</h3>
+    <table class = "users-products-show" >
+      <tr>
+        <td>店舗名</td>
+        <td><h4 class="shop-name"><%= @shop.shop_name %></h4></td>
+        <td><%= link_to '店舗詳細へ', shop_path(@shop.id), class:"show_#{@shop.id}", class:"btn btn-success" %></td>
+      </tr>
+      <tr>
+        <td>店舗住所</td>
+        <td><h4 class="shop-address"><%= @shop.address %></h4></td>
+      </tr>
+      <tr>
+        <td>店舗URL</td>
+        <td><h4 class="shop-url"><%= @shop.url %></h4></td>
+      </tr>
+      <tr>
+        <td>商品名</td>
+        <td><h4 class="product-name"><%= @product.product_name %></h4></td>
+      </tr>
+      <tr>
+        <td>商品説明</td>
+        <td><h4 class="product-body"><%= @product.body %></h4></td>
+      </tr>
+      <tr>
+        <td>価格</td>
+        <td><h4 class="product-price"><%= @product.amounts %>円(税抜き)</h4></td>
+      </tr>
+    </table>
+            
+    <tr>
+      <%= link_to '商品一覧へ戻る', products_path, class:"btn btn-secondary" %>
+    </tr>
+            

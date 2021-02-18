@@ -11,56 +11,55 @@
 
   <!--ログイン中なら上記。違うならelse以下を表示-->
   <header>
-      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #9acd32;">
-        <div class="container">
-          <a class="navbar-brand" href="/"><span>Swefo♫</span></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav ml-auto">
-                  
-          <% if user_signed_in? %>
-          <!--ユーザーログイン時-->
-            <li><%= link_to "当サイトについて", about_path, class: "fas fa-link nav-link text-light" %></li>
-            <li><%= link_to "ユーザーマイページ", user_path(current_user.id) %></li>
-            <li><%= link_to "商品一覧", products_path %></li>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #9acd32;">
+      <div class="container">
+        <a class="navbar-brand" href="/"><span>Swefo♫</span></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+            <!--ユーザーログイン時-->
+              <li><%= link_to "当サイトについて", about_path, class: "fas fa-file" %></li>
+              <li><%= link_to "ユーザーマイページ", user_path(current_user.id), class: "fas fa-id-card" %></li>
+              <li><%= link_to "商品一覧", products_path, class: "fas fa-ice-cream" %></li>
             <!--店舗管理者なら、商品情報新規登録できるように表示-->
-            <% if current_user.admin_flag %>
-            <li><%= link_to "商品情報投稿", new_product_path %></li>
+              <% if current_user.admin_flag %>
+                <li><%= link_to "商品情報投稿", new_product_path %></li>
+              <% end %>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-user-times" %></li>
+              <li><%= link_to "お問い合わせ", contact_path, class: "fas fa-desktop" %></li>
+            <% elsif admin_signed_in? %>
+              <!--サイト管理者ログイン時 -->
+              <li><%= link_to "商品 一覧", admin_products_path, class: "fas fa-ice-cream" %></li>
+              <li><%= link_to "ユーザー 一覧", admin_users_path, class: "fas fa-users" %></li>
+              <li><%= link_to "ジャンル 一覧", admin_genres_path, class: "fas fa-pen-square" %></li>
+              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "fas fa-user-times" %></li>
+            <% else %>
+              <li><%= link_to "当サイトについて", about_path, class: "fas fa-file" %></li>
+              <li><%= link_to "商品一覧", products_path, class: "fas fa-ice-cream" %></li>
+              <!--クリックしてもエラーが発生する。ルーティング-->
+              <li><%= link_to "新規登録", new_user_registration_path, class: "fas fa-user-plus" %></li>
+              <li><%= link_to "ログイン", new_user_session_path, class: "fas fa-user" %></li>
+              <li><%= link_to "お問い合わせ", contact_path, class: "fas fa-desktop" %></li>
             <% end %>
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-            <li><%= link_to "お問い合わせ", contact_path %></li>
-          <% elsif admin_signed_in? %>
-            <!--サイト管理者ログイン時 -->
-            <li><%= link_to "商品 一覧", admin_products_path %></li>
-            <li><%= link_to "ユーザー 一覧", admin_users_path %></li>
-            <li><%= link_to "ジャンル 一覧", admin_genres_path %></li>
-            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-          <% else %>
-            <li><%= link_to "当サイトについて", about_path %></li>
-            <li><%= link_to "商品一覧", products_path %></li>
-            <!--クリックしてもエラーが発生する。ルーティング-->
-            <li><%= link_to "新規登録", new_user_registration_path %></li>
-            <li><%= link_to "ログイン", new_user_session_path %></li>
-            <li><%= link_to "お問い合わせ", contact_path %>
-            </li>
-          <% end %>
           </ul>
-          </div> 
-        </div> 
-      </nav>
-    </header>
-    
-     <main class="mb-auto">
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <body>
+    <main class="mb-auto">
       <div class="container px-5 px-sm-0">
-    <%= yield %>
-  </body>
-  <footer class="bg-pink text-white pt-5 pb-4">
+      <%= yield %>
+      </div>
+    </main>
+
+    <footer class="bg-pink text-white pt-5 pb-4">
       <div class="container">
         <div class="row no-gutters">
-          <div class="col-md-4">
-          </div>
           <div class="col-md-8">
             <ul class="p-0 list-unstyled">
               <li>
