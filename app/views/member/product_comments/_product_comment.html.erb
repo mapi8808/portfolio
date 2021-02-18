@@ -1,0 +1,14 @@
+<%= form_with model:@shop, local: true do |f| %>
+  <div>
+    <%= f.text_area :productcomment %>
+  </div>
+<% end %>
+
+<% product.productcomments.each do |product_comment| %><
+  <td><%= product_comment.user.name %>
+      <%= product_comment.comment %>
+      <% if product_comment.user == current_user %>
+      <%= link_to "Destroy", product_product_comment_path(product_comment.product, product_comment), method: :delete, remote: true  %>
+       <% end %>
+    </td>
+<% end %>

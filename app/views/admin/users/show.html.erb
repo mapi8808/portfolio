@@ -11,7 +11,7 @@
       </tr>
   </table>
   
-  <% if admin_flag = true %>
+  <% if @user.admin_flag.present?  %>
   <table class = "shop-show" >
     <h3 class = "marker">登録店舗情報</h3>
       <tr>

@@ -33,8 +33,12 @@
                     <td><%= render '/favorites/favorite', product: @product %></td>
                   </tr>
               </table>
-            
-             
+              <div>
+                <h4>コメント・感想</h4>
+                <%= render 'member/product_comments/product_comment', product: @product %>
+              </div>
+
+
             </div>
             <tr>
               <% if current_user %>
@@ -42,7 +46,7 @@
               <% end %>
               <%= link_to '商品一覧へ戻る', products_path, class:"btn btn-secondary" %>
             </tr>
-            
+
     <!--</div>-->
   <!--</div>-->
 <!--</div>-->

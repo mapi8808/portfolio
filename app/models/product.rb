@@ -6,10 +6,10 @@ class Product < ApplicationRecord
   attachment :image
   belongs_to :genre
   has_many :favorites, dependent: :destroy
-  has_many :product_comments, dependent: :destroy
-  
-  def favorited_by?(user_id)
-    favorites.where(user_id: user.id).exists?
+  has_many :productcomments, dependent: :destroy
+
+  def favorited_by?(crrent_user)
+    favorites.where(user_id: crrent_user.id).exists?
   end
-  
+
 end

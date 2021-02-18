@@ -2,16 +2,20 @@ class Member::ProductCommentsController < ApplicationController
   # メンバー会員（店員）がコメントするためのコントローラ
   
   def create
-    product = Product.find(params[:product_id])
-    comment = current_user.product_comments.new(product_comment_params)
-    comment.product_id = product.id
+    @product = Product.find(params[:product_id])
+    @comment = current_user.product_comments.new(product_comment_params)
+    @comment.product_id = @product.id
+    # unless @book_comment.save
+    # render 'error'
+    # end
     comment.save
-    redirect_to product_path(product)
+    redirect_to product_path(@product)
   end
   
   def destroy
-    ProductComment.find_by(id: params[:id], product_id: params[:product_id]).destroy
-    redirect_to product_path(params[:product_id])
+    @product = Product.find(params[:product_id])
+    product_comment = ProductComment.find(params[:id])
+    product_comment.destroy
   end
   
   private
