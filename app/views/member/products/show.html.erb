@@ -29,21 +29,12 @@
                     <td>価格</td>
                     <td><h4 class="product-price"><%= @product.amounts %>円(税抜き)</h4></td>
                   </tr>
+                  <tr>
+                    <td><%= render '/favorites/favorite', product: @product %></td>
+                  </tr>
               </table>
             
-              <% if @product.favorited_by?(current_user) %>
-                <p>
-                  <%= link_to product_favorites_path(@product), method: :delete do %>
-                  ♥<%= @product.favorites.count %> いいね
-                  <% end %>
-                </p>
-              <% else %>
-                <p>
-                  <%= link_to product_favorites_path(@product), method: :post do %>
-                  ♡<%= @product.favorites.count %> いいね
-                  <% end %>
-              </p>
-              <% end %>
+             
             </div>
             <tr>
               <% if current_user %>

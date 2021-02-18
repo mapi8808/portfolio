@@ -1,6 +1,6 @@
 <div class="user-show1">
-  <table class = "users-show" >
-    <h3>ユーザー情報</h3>
+  <table class = "user-show" >
+    <h3 class = "marker">ユーザー情報</h3>
       <tr>
         <td>ユーザー名</td>
         <td><h5 class="user-name"><%= @user.name %></h5></td>
@@ -18,7 +18,7 @@
   <!--新規登録で店舗管理者（admin_flag）にチェックを入れていたら店舗情報表示-->
   <% if current_user.admin_flag %>
   <table class = "shop-show" >
-    <h3>登録店舗情報</h3>
+    <h3 class = "marker">登録店舗情報</h3>
       <tr>
         <td>店舗名</td>
         <td><h4 class="shop-name"><%= @shop.shop_name %></h4></td>

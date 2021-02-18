@@ -1,8 +1,6 @@
 class HomesController < ApplicationController
   # トップ画面
   def top
-    # @product = Product.find(params[:id])
-    # @shop = Shop.find(params[:id])
   end
   # サイト概要・作成経緯
   def about
