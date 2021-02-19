@@ -9,7 +9,7 @@ class Product < ApplicationRecord
   has_many :productcomments, dependent: :destroy
 
   def favorited_by?(crrent_user)
-    favorites.where(user_id: crrent_user.id).exists?
+    favorites.where(user_id: crrent_user).exists?
   end
 
 end

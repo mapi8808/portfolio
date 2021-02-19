@@ -11,6 +11,7 @@
             <p id = "product_<%= product.id %>">
             <%= render '/favorites/favorite', product: product %>
             </p>
+            <p>コメント件数：<%= product.productcomments.count %></p>
           </div>
         </div>
       <% end %>

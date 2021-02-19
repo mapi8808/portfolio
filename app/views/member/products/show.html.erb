@@ -2,7 +2,7 @@
   <!--<div class="row">-->
     <!--<div class="col-md-12">-->
             <div class="users-products-show1">
-              <h3>商品詳細</h3>
+              <h3 class="marker">商品詳細</h3>
                <table class = "users-products-show" >
                   <tr>
                     <td>店舗名</td>
@@ -31,11 +31,18 @@
                   </tr>
                   <tr>
                     <td><%= render '/favorites/favorite', product: @product %></td>
+                    <td><p>コメント件数：<%= @product.productcomments.count %></p</td>
                   </tr>
               </table>
               <div>
-                <h4>コメント・感想</h4>
-                <%= render 'member/product_comments/product_comment', product: @product %>
+                <h4 class="marker">コメント・感想</h4>
+                  <%= form_with(model:[@product, @comment], local: true) do |f| %>
+                  <div>
+                    <%= f.text_area :comment,  rows:'5',placeholder: "" %>
+                  </div>
+                    <%= f.submit "送信する" %>
+                  <% end %>
+                <%= render 'member/productcomments/productcomment', product: @product %>
               </div>
 
 

@@ -3,7 +3,7 @@ class Member::ProductCommentsController < ApplicationController
   
   def create
     @product = Product.find(params[:product_id])
-    @comment = current_user.product_comments.new(product_comment_params)
+    @comment = current_user.productcomments.new(productcomment_params)
     @comment.product_id = @product.id
     # unless @book_comment.save
     # render 'error'
@@ -14,13 +14,13 @@ class Member::ProductCommentsController < ApplicationController
   
   def destroy
     @product = Product.find(params[:product_id])
-    product_comment = ProductComment.find(params[:id])
-    product_comment.destroy
+    productcomment = Productcomment.find(params[:id])
+    productcomment.destroy
   end
   
   private
 
-  def product_comment_params
-    params.require(:product_comment).permit(:comment)
+  def productcomment_params
+    params.require(:productcomment).permit(:comment)
   end
 end

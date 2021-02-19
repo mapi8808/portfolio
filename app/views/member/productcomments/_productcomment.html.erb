@@ -1,0 +1,9 @@
+<% product.productcomments.each do |productcomment| %><
+  <td><%= productcomment.user.name %>
+      <%= productcomment.comment %>
+      <%= productcomment.created_at.strftime('%Y/%m/%d') %><%= productcomment.comment %>
+      <% if productcomment.user == current_user %>
+      <%= link_to "Destroy", product_productcomment_path(productcomment.product, productcomment), method: :delete, remote: true  %>
+       <% end %>
+    </td>
+<% end %>

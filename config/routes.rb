@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :shops, only: [:show, :edit, :new, :create, :update, :destroy]
     resources :products do
       resource :favorites, only: [:create, :destroy]
-      resources :product_comments, only: [:create, :destroy]
+      resources :productcomments, only: [:create, :destroy]
     end
   end
   
