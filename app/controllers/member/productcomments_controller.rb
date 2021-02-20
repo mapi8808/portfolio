@@ -1,4 +1,4 @@
-class Member::ProductCommentsController < ApplicationController
+class Member::ProductcommentsController < ApplicationController
   # メンバー会員（店員）がコメントするためのコントローラ
   
   def create
@@ -8,7 +8,7 @@ class Member::ProductCommentsController < ApplicationController
     # unless @book_comment.save
     # render 'error'
     # end
-    comment.save
+    @comment.save
     redirect_to product_path(@product)
   end
   
@@ -16,6 +16,7 @@ class Member::ProductCommentsController < ApplicationController
     @product = Product.find(params[:product_id])
     productcomment = Productcomment.find(params[:id])
     productcomment.destroy
+    redirect_to request.referer
   end
   
   private
