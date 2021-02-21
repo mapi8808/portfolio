@@ -1,5 +1,5 @@
 class Member::ProductsController < ApplicationController
-  # メンバー会員の内容
+   # メンバー会員の内容
   # before関連入力　バリデーション カリキュラム参照
   # before_action :authenticate_user!,except: [:top]
 

@@ -1,0 +1,6 @@
+<%= form_with url: search_search_path, method: :get, local: true do |f| %>
+  <%= f.text_field :search %>
+  <%= select_tag(:option, options_for_select([["Shop", "1"],["Product","2"]]))%>
+  <%= select_tag(:choice, options_for_select([["完全一致検索", "1" ],["部分一致検索", "2" ]])) %>
+  <%= f.submit 'Search', name: nil %>
+<% end %>

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   }
   
   scope module: :member do
+    get 'search/search'
     resources :users, only: [:show, :edit, :quit, :update, :goodbye]
     resources :shops, only: [:show, :edit, :new, :create, :update, :destroy]
     resources :products do

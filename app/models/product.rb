@@ -11,5 +11,17 @@ class Product < ApplicationRecord
   def favorited_by?(crrent_user)
     favorites.where(user_id: crrent_user).exists?
   end
+  
+  def Product.search(search, how_search, shop_or_product)
+    if shop_or_product == "2"
+      if how_search == "1"
+        Product.where(['title LIKE ?', "#{search}"])
+      elsif how_search == "2"
+        Product.where(['title LIKE ?', "%#{search}%"])
+      else
+        Product.all
+      end
+    end
+  end
 
 end

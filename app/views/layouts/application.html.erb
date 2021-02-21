@@ -11,7 +11,7 @@
 
   <!--ログイン中なら上記。違うならelse以下を表示-->
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #9acd32;">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #9acd32; height: 120px;">
       <div class="container">
         <a class="navbar-brand" href="/"><span>Swefo♫</span></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,17 +21,19 @@
           <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
             <!--ユーザーログイン時-->
+              <li><%= render 'search/search', shop: @shop, product: @product%></li>
               <li><%= link_to "当サイトについて", about_path, class: "fas fa-file" %></li>
-              <li><%= link_to "ユーザーマイページ", user_path(current_user.id), class: "fas fa-id-card" %></li>
+              <li><%= link_to "マイページ", user_path(current_user.id), class: "fas fa-id-card" %></li>
               <li><%= link_to "商品一覧", products_path, class: "fas fa-ice-cream" %></li>
             <!--店舗管理者なら、商品情報新規登録できるように表示-->
               <% if current_user.admin_flag %>
-                <li><%= link_to "商品情報投稿", new_product_path %></li>
+                <li><%= link_to "商品情報投稿", new_product_path, class: "fas fa-edit" %></li>
               <% end %>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-user-times" %></li>
               <li><%= link_to "お問い合わせ", contact_path, class: "fas fa-desktop" %></li>
             <% elsif admin_signed_in? %>
               <!--サイト管理者ログイン時 -->
+              <li><%= render 'search/search', shop: @shop, product: @product%></li>
               <li><%= link_to "商品 一覧", admin_products_path, class: "fas fa-ice-cream" %></li>
               <li><%= link_to "ユーザー 一覧", admin_users_path, class: "fas fa-users" %></li>
               <li><%= link_to "ジャンル 一覧", admin_genres_path, class: "fas fa-pen-square" %></li>
