@@ -3,10 +3,10 @@
         <% if @shop_or_product == "1" %>
             <h1>search for "Shop"</h1>
             <table class="table">
-                <% @shop.each do |shop| %>
+                <% @shops.each do |shop| %>
                 <thead>
                     <tr>
-                        <td><h3 class="shop-name"><%= shop.name %></h3></td>
+                        <td><h3 class="shop-name"><%= shop.shop_name %></h3></td>
                     </tr>
                 </thead>
                 <% end %>
@@ -23,7 +23,7 @@
                                 <%= attachment_image_tag product, :image, :fill, 150, 150, format: 'jpeg' %>
                             <% end %>
                         </td>
-                        <td style = "width: 30%;"><%= link_to product.title, product_path(product)  %></td>
+                        <td style = "width: 30%;"><%= link_to product.product_name, product_path(product)  %></td>
                         <td style = "width: 30%;"><%= product.body %></td>
                         <th style = "width: 10%;"></th>
                         <th style = "width: 20%;"></th>

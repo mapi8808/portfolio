@@ -2,9 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.user-comments {
+.scroll {
   background-color: white;
-  overflow-y: scroll;
+  overflow: scroll;
+  height: 170px;
+  border: 1px solid #dc3545;
+  padding: 10px;
 }
 
 .name {

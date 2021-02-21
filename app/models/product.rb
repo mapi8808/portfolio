@@ -15,9 +15,9 @@ class Product < ApplicationRecord
   def Product.search(search, how_search, shop_or_product)
     if shop_or_product == "2"
       if how_search == "1"
-        Product.where(['title LIKE ?', "#{search}"])
+        Product.where(['product_name LIKE ?', "#{search}"])
       elsif how_search == "2"
-        Product.where(['title LIKE ?', "%#{search}%"])
+        Product.where(['product_name LIKE ?', "%#{search}%"])
       else
         Product.all
       end
