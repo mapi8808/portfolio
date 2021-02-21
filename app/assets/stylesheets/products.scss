@@ -10,3 +10,19 @@
  width: 100%;
 }
 
+.scroll {
+  background-color: white;
+  overflow: scroll;
+  height: 170px;
+  border: 1px solid #dc3545;
+  padding: 10px;
+}
+
+.list {
+  background-color: white;
+  overflow: scroll;
+  height: 450px;
+  border: 1px solid #dc3545;
+  padding: 10px;
+}
+

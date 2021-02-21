@@ -33,7 +33,7 @@
               <li><%= link_to "お問い合わせ", contact_path, class: "fas fa-desktop" %></li>
             <% elsif admin_signed_in? %>
               <!--サイト管理者ログイン時 -->
-              <li><%= render 'membersearch/search', shop: @shop, product: @product%></li>
+              <li><%= render 'member/search/search', shop: @shop, product: @product%></li>
               <li><%= link_to "商品 一覧", admin_products_path, class: "fas fa-ice-cream" %></li>
               <li><%= link_to "ユーザー 一覧", admin_users_path, class: "fas fa-users" %></li>
               <li><%= link_to "ジャンル 一覧", admin_genres_path, class: "fas fa-pen-square" %></li>

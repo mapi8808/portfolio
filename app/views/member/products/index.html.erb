@@ -1,28 +1,30 @@
- <h2 class="marker">商品一覧</h2>
+<h2 class="marker">商品一覧</h2>
+  <div class="list">
     <div class="row">
       <% @products.each do |product| %>
         <% shop = product.shop %>
-        <div class="col-md-6">
-          <div class="products">
-            <table>
-              <tr>
-                <td>
-                  <%= attachment_image_tag product, :image, :fill, 150, 150, format: 'jpeg' %>
-                </td>
-                <td>
-                  <h5 class="shop-name">店舗名：<%= shop.shop_name %></h5>
-                  <h5 class="product-name">商品名<%= link_to product.product_name, product_path(product) %></h5>
-                  <h6 class="product-body">商品説明：<%= product.body %></h6>
-                  <h5 class="product-price">価格：<%= product.amounts %>円(税抜き)</h5>
-                </td>
-              </tr>
-            </table>
+          <div class="col-md-6">
+            <div class="products">
+              <table>
+                <tr>
+                  <td>
+                    <%= attachment_image_tag product, :image, :fill, 150, 150, format: 'jpeg' %>
+                  </td>
+                  <td>
+                    <h5 class="shop-name">店舗名：<%= shop.shop_name %></h5>
+                    <h5 class="product-name">商品名：<%= link_to product.product_name, product_path(product) %></h5>
+                    <h6 class="product-body">商品説明：<%= product.body %></h6>
+                    <h5 class="product-price">価格：<%= product.amounts %>円(税抜き)</h5>
+                  </td>
+                </tr>
+              </table>
             <p id = "product_<%= product.id %>">
-            <%= render '/favorites/favorite', product: product %>
+              <%= render '/favorites/favorite', product: product %>
             </p>
             <p>コメント件数：<%= product.productcomments.count %></p>
           </div>
-        </div>
+      </div>
       <% end %>
     </div>
+  </div>
 <%= link_to 'HOME画面に戻る', root_path, class:"btn btn-secondary" %>
