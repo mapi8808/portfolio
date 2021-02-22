@@ -1,4 +1,5 @@
 <h3 class="marker">ユーザー 一覧</h3>
+<div class="list"> <!--リスト内にスクロールバーを導入してみやすく。-->
   <div class = "row">
     <% @users.each do |user| %>
       <div class="col-md-4">
@@ -11,6 +12,6 @@
       </div>
     <% end %>
   </div>
-  
+</div>
 <%= link_to 'HOME画面に戻る', root_path, class:"btn btn-secondary" %>
 

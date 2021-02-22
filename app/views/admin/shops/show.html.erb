@@ -7,15 +7,15 @@
   <tr>
     <td>店舗住所</td>
     <td><h4 class="shop-address"><%= @shop.address %></h4></td>
-  </tr>  
+  </tr>
   <tr>
     <td>電話番号</td>
     <td><h4 class="shop-tel"></h4><%= @shop.tel %></td>
-  </tr>   
+  </tr>
   <tr>
     <td>店舗管理者メール</td>
     <td><h4 class="shop-admin-email"></h4><%= @shop.admin_email %></td>
-  </tr>   
+  </tr>
   <tr>
     <td>店舗URL</td>
     <td><h4 class="shop-url"><%= @shop.url %></h4></td>
@@ -27,7 +27,7 @@
   <tr>
     <td>休業日</td>
     <td><h4 class="shop-holiday"><%= @shop.holiday %></h4></td>
-  </tr>  
+  </tr>
 </table>
 
-<%= link_to '商品一覧へ戻る', products_path, class:"btn btn-secondary"  %></td>
+<%= link_to '商品一覧へ戻る', admin_products_path, class:"btn btn-secondary"  %></td>

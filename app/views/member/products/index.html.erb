@@ -1,4 +1,9 @@
 <h2 class="marker">商品一覧</h2>
+<% if flash[:destroy] %>
+      <div class="flash">
+        <%= flash[:destroy] %>
+      </div>
+<% end %>
 <%= paginate @products %> <!--リストが20超えたら、ページング起動-->
   <%= render 'shared/products', shop: @shop, products: @products%>
 <%= link_to 'HOME画面に戻る', root_path, class:"btn btn-secondary" %> <!--top画面へ-->

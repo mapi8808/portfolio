@@ -7,6 +7,11 @@ class Product < ApplicationRecord
   belongs_to :genre
   has_many :favorites, dependent: :destroy
   has_many :productcomments, dependent: :destroy
+  
+  validates :product_name, length:  { in: 1..20 }, presence: true
+  validates :image, presence: true
+  
+  
 
   def favorited_by?(crrent_user)
     favorites.where(user_id: crrent_user).exists?

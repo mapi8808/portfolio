@@ -3,6 +3,13 @@ class Shop < ApplicationRecord
   belongs_to :user
   has_many :products, dependent: :destroy
   
+  validates :shop_name, length:  { in: 1..20 }, presence: true
+  validates :address, presence: true
+  validates :tel, length: { minimum: 10 },  presence: true
+  validates :hours, presence: true
+  validates :admin_email, presence: true
+  validates :shop_name, length:  { in: 1..20 }, presence: true
+  
   def Shop.search(search, how_search, shop_or_product)
     if shop_or_product == "1"
       if how_search == "1"

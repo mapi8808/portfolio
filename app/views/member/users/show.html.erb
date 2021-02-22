@@ -1,6 +1,11 @@
 <div class="user-show1">
   <table class = "user-show" >
     <h3 class = "marker">ユーザー情報</h3>
+    <% if flash[:shopup] %>
+      <div class="flash">
+        <%= flash[:shopup] %>
+      </div>
+    <% end %>
       <tr>
         <td>ユーザー名</td>
         <td><h5 class="user-name"><%= @user.name %></h5></td>
@@ -19,6 +24,12 @@
   <% if current_user.admin_flag %>
   <table class = "shop-show" >
     <h3 class = "marker">登録店舗情報</h3>
+    
+    <% if flash[:update] %>
+      <div class="flash">
+        <%= flash[:update] %>
+      </div>
+    <% end %>
       <tr>
         <td>店舗名</td>
         <td><h4 class="shop-name"><%= @shop.shop_name %></h4></td>

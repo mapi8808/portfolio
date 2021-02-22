@@ -1,7 +1,6 @@
 class Member::ProductsController < ApplicationController
-   # メンバー会員の内容
-  # before関連入力　バリデーション カリキュラム参照
-  # before_action :authenticate_user!,except: [:top]
+  # メンバー会員の内容
+  before_action :authenticate_user!,except: [:index]
 
   def index
     @products = Product.page(params[:page]).reverse_order
@@ -27,8 +26,10 @@ class Member::ProductsController < ApplicationController
     @product = @shop.products.build(product_params)
     @product.user_id = current_user.id
     if @product.save
+    flash[:create] = "商品情報を追加しました"
       redirect_to product_path(@product.id)
     else
+      @products = Product.all
       render :new
     end
   end
@@ -36,16 +37,20 @@ class Member::ProductsController < ApplicationController
   def update
     @product = current_user.products.find(params[:id])
     if @product.update(product_params)
+    flash[:update] = "商品情報を更新しました"
       redirect_to @product
     else
+      @products = Product.find(params[:id])
       render :edit
     end
   end
 
   def destroy
-    product = Product(params[:id])
-    product.destroy
-    redirect_to product_path
+    product = Product.find(params[:id])
+    if product.destroy
+    flash[:destroy] = "商品情報を削除しました"
+    redirect_to products_path
+    end
   end
 
   private

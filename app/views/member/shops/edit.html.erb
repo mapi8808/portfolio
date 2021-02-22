@@ -1,4 +1,13 @@
 <h2 class = "marker">店舗情報編集</h2>
+<% if @shop.errors.any? %>
+  <h4><%= @shop.errors.count %>件のエラーが発生しました</h4>
+    <ul>
+      <% @shop.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+      <% end %>
+    </ul>
+<% end %>
+
 <%= form_with model:@shop, url: shop_path, local:true do |f| %>
 
 <h4 class="shop-name">店舗名</h4>

@@ -5,12 +5,12 @@
       
       <!--入力エラーが発生した時のメッセージ-->
       <% if @genre.errors.any? %>
-      <h4><%= @genre.errors.count %>件のエラーが発生しました</h4>
-      <ul>
-        <% @genre.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
+        <h4><%= @genre.errors.count %>件のエラーが発生しました</h4>
+          <ul>
+            <% @genre.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+            <% end %>
+          </ul>
       <% end %>
       
       <!--ジャンル名入力-->

@@ -1,4 +1,13 @@
 <h2 >商品情報登録</h2>
+  <% if @product.errors.any? %>
+    <h6><%= @product.errors.count %>件のエラーが発生しました</h6>
+      <ul>
+        <% @product.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+        <% end %>
+      </ul>
+  <% end %>
+    
 <%= form_with model:@product, url: products_path, local: true do |f| %>
 <table>
   <tr>

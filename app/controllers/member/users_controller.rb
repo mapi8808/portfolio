@@ -18,8 +18,13 @@ class Member::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
+    if @user.update(user_params)
+    flash[:update] = "ユーザー情報を更新しました"
     redirect_to user_path
+    else
+      @users = User.find(params[:id])
+      render :edit
+    end
   end
 
   def goodbye
