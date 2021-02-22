@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'about' => 'homes#about'
   # get 'contact' => 'homes#contact'
-  resources :contact, only: [:new]
+  resources :contacts, only: [:new, :create]
   get 'products/index'
   
   devise_for :users, controllers: {

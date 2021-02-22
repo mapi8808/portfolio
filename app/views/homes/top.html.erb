@@ -1,15 +1,22 @@
-<ul class="bxslider"> <!--商品の写真スライダを反映（クリックすると商品詳細へ）ー-->
-  <% @products.each do |product| %>
-      <li>
-        <%= link_to product_path(product) do %>
-          <% if product.image %>
-             <%= attachment_image_tag product, :image, :fill, 150, 150, format: 'jpeg' %>
-          <% else %>
-            <%= image_tag 'no_image.png' %>
-          <% end %>
-        <% end %>
-      </li>
-  <% end %>
-</ul>
+<div class = "row">
+  <div class="col-md-6">
+  </div>
 
+
+  <div class="col-md-6">
+    <ul class="bxslider"> <!--商品の写真スライダを反映（クリックすると商品詳細へ）ー-->
+      <% @products.each do |product| %>
+          <li>
+            <%= link_to product_path(product) do %>
+              <% if product.image %>
+                 <%= attachment_image_tag product, :image, :fill, 1000, 1000, format: 'jpeg' %>
+              <% else %>
+                <%= image_tag 'no_image.png' %>
+              <% end %>
+            <% end %>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
 <!--<div class="Topimage"></div>-->
