@@ -31,7 +31,7 @@ class Member::ShopsController < ApplicationController
   def update
     @shop = Shop.find(params[:id])
     if @shop.update(shop_params)
-    flash[:update] = "店舗情報を更新しました"
+    flash[:shopup] = "店舗情報を更新しました"
     redirect_to user_path(current_user.id) # ログインしているユーザー
     else
       @shops = Shop.find(params[:id])

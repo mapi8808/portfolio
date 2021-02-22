@@ -6,7 +6,7 @@
     <h6>投稿日<%= productcomment.created_at.strftime('%Y/%m/%d  %H:%M:%S') %></h6>
     <h6><%= productcomment.comment %></h6>
       <% if productcomment.user == current_user %>
-    <p><%= link_to "Destroy", product_productcomment_path(productcomment.product, productcomment), method: :delete, : true, class:"btn btn-danger" %></P>
-       <% end %>
+        <%= link_to "Destroy", product_productcomment_path(productcomment.product, productcomment), method: :delete, class:"btn btn-danger" %>
+      <% end %>
   </div>
 <% end %>

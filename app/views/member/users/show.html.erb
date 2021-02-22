@@ -1,9 +1,9 @@
 <div class="user-show1">
   <table class = "user-show" >
     <h3 class = "marker">ユーザー情報</h3>
-    <% if flash[:shopup] %>
+    <% if flash[:update] %>
       <div class="flash">
-        <%= flash[:shopup] %>
+        <%= flash[:update] %>
       </div>
     <% end %>
       <tr>
@@ -25,9 +25,9 @@
   <table class = "shop-show" >
     <h3 class = "marker">登録店舗情報</h3>
     
-    <% if flash[:update] %>
+    <% if flash[:shopup] %>
       <div class="flash">
-        <%= flash[:update] %>
+        <%= flash[:shopup] %>
       </div>
     <% end %>
       <tr>
