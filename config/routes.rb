@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   # get 'products/show'
   root to: 'homes#top'
   get 'about' => 'homes#about'
-  get 'contact' => 'homes#contact'
-  # resources :products, only: [:index, :show]
+  # get 'contact' => 'homes#contact'
+  resources :contact, only: [:new]
   get 'products/index'
   
   devise_for :users, controllers: {

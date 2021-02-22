@@ -4,7 +4,7 @@ class Member::ProductsController < ApplicationController
   # before_action :authenticate_user!,except: [:top]
 
   def index
-    @products = Product.all
+    @products = Product.page(params[:page]).reverse_order
     @shops = Shop.all
   end
 

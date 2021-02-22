@@ -1,0 +1,44 @@
+<div class="product-show">
+  <h3 class="marker">商品詳細</h3>
+    <table>
+      <tr>
+        <td>
+          <%= attachment_image_tag product, :image, :fill, 400, 330, format: 'jpeg' %>
+        </td>
+        <td>
+          <h4>店舗名：<%= shop.shop_name %></h4>
+          <%= link_to '店舗詳細へ', shop_path(shop.id), class:"show_#{shop.id}", class:"btn btn-success" %>
+            <% if current_user %>
+              <%= link_to "商品情報編集", edit_product_path(product.id), class:"btn btn-primary" %>
+            <% end %>
+          <%= link_to '商品一覧へ戻る', products_path, class:"btn btn-secondary" %>
+          <h4>店舗住所：<%= shop.address %></h4>
+          <h5>店舗URL：<%= shop.url %></h5>
+          <h4>商品名：<%= product.product_name %></h4>
+          <h5>商品説明：<%= product.body %></h5>
+          <h5>価格:<%= product.amounts %>円(税抜き)</h5>
+          <h6>投稿日<%= product.created_at.strftime('%Y/%m/%d  %H:%M:%S') %></h6>
+          <p><%= render '/favorites/favorite', product: @product %></p>
+          <p>コメント件数：<%= @product.productcomments.count %></p>
+        </td>
+      </tr>
+    </table>
+    
+    <div>
+      <h4 class="marker">コメント・感想</h4>
+        <div class="row">
+          <div class="col-md-6">
+            <%= form_with(model:[@product, @comment], local: true) do |f| %>
+            <%= f.text_area :comment,  rows:'5',placeholder: "", class:'comment' %>
+            <%= f.submit "送信する" %>
+          </div>
+            <% end %>
+            
+          <div class="col-md-6">
+            <div class = "scroll">
+            <%= render 'member/productcomments/productcomment', product: @product %>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
