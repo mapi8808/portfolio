@@ -30,10 +30,12 @@
         <td>店舗メールアドレス</td>
         <td><h4 class="shop-admin-email"><%= @shop.admin_email %></h4></td>
       </tr>
+      <% if @shop.url.present? %> 
       <tr>
         <td>店舗URL</td>
-        <td><h4 class="shop-url"><%= @shop.url %></h4></td>
+        <td><h4 class="shop-url"><%= link_to 'リンク先', @shop.url %></h4></td>
       </tr>
+      <% end %>
       <tr>
         <td>営業時間</td>
         <td><h4 class="shop-hours"><%= @shop.hours %></h4></td>

@@ -1,10 +1,8 @@
 class Admin::ProductsController < ApplicationController
-  before_action :authenticate_user!
     
   def index
-    @products = Product.all
+    @products = Product.page(params[:page]).reverse_order
     @shops = Shop.all
-    # @products = Product.page(params[:page]).per(PER)
   end
   
   def show

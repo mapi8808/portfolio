@@ -10,13 +10,15 @@
         <td>
           <h4>店舗名：<%= shop.shop_name %></h4>
           <%= link_to '店舗詳細へ', shop_path(shop.id), class:"show_#{shop.id}", class:"btn btn-success" %>
-            <% if current_user %>
+            <% if current_user == shop.user %>
               <%= link_to "商品情報編集", edit_product_path(product.id), class:"btn btn-primary" %>
               <%= link_to "削除", product_path(product.id), method: :delete, class:"btn btn-danger", "data-confirm" => "本当に削除しますか？" %>
               <% end %>
           <%= link_to '商品一覧へ戻る', products_path, class:"btn btn-secondary" %>
           <h4>店舗住所：<%= shop.address %></h4>
-          <h5>店舗URL：<%= shop.url %></h5>
+          <% if shop.url.present? %> 
+            <h5>店舗URL：<%= link_to 'リンク先', shop.url %></h5>
+          <% end %>
           <h4>商品名：<%= product.product_name %></h4>
           <h5>商品説明：<%= product.body %></h5>
           <h5>価格:<%= product.amounts %>円(税抜き)</h5>

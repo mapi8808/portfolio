@@ -1,4 +1,5 @@
  <h2 class="marker">商品一覧</h2>
+ <%= paginate @products %>
   <div class="list"> <!--リスト内にスクロールバーを導入してみやすく。-->
     <div class="row"> <!--1つの商品をみやすくブロック化-->
       <% @products.each do |product| %>

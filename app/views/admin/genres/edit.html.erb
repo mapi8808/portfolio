@@ -1,20 +1,15 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h2 class="marker">ジャンル編集</h2>
+<h2 class="marker">ジャンル編集</h2>
+  <% if @genre.errors.any? %>  <!--入力エラーが発生した時のメッセージ-->
+    <h4><%= @genre.errors.count %>件のエラーが発生しました</h4>
+      <ul>
+        <% @genre.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+        <% end %>
+      </ul>
+  <% end %>
       
-      <!--入力エラーが発生した時のメッセージ-->
-      <% if @genre.errors.any? %>
-        <h4><%= @genre.errors.count %>件のエラーが発生しました</h4>
-          <ul>
-            <% @genre.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-            <% end %>
-          </ul>
-      <% end %>
-      
-      <!--ジャンル名入力-->
-      <%= form_with model:@genre, url: admin_genre_path(@genre), local:true, method: :patch do |f| %>
+    <!--ジャンル名入力-->
+    <%= form_with model:@genre, url: admin_genre_path(@genre), local:true, method: :patch do |f| %>
       <table class="genre">
         <tr>
           <td width=”100″><%= f.label :"ジャンル名" %></td>
@@ -22,7 +17,5 @@
           <td width=”25″><%= f.submit "変更を保存" , class: "btn btn-success" %></td>
         </tr>
       </table>
-      <% end %>
-    </div>
-  </div>
-</div>
+    <% end %>
+   

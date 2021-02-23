@@ -15,7 +15,7 @@
         <td><h5 class="email"><%= @user.email %></h5></td>
       </tr>
   </table>
-  
+
   <div>
     <%= link_to "ユーザー情報編集", edit_user_path(current_user.id), class: "btn btn-primary" %>
   </div>
@@ -24,7 +24,7 @@
   <% if current_user.admin_flag %>
   <table class = "shop-show" >
     <h3 class = "marker">登録店舗情報</h3>
-    
+
     <% if flash[:shopup] %>
       <div class="flash">
         <%= flash[:shopup] %>
@@ -46,10 +46,12 @@
         <td>店舗メールアドレス</td>
         <td><h4 class="shop-admin-email"><%= @shop.admin_email %></h4></td>
       </tr>
+      <% if @shop.url.present? %>
       <tr>
         <td>店舗URL</td>
-        <td><h4 class="shop-url"><%= @shop.url %></h4></td>
+        <td><h4 class="shop-url"><%= link_to 'リンク先', @shop.url %></h4></td>
       </tr>
+      <% end %>
       <tr>
         <td>営業時間</td>
         <td><h4 class="shop-hours"><%= @shop.hours %></h4></td>

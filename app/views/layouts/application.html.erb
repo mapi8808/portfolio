@@ -10,65 +10,66 @@
   </head>
 
   <!--ログイン中なら上記。違うならelse以下を表示-->
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #9acd32; height: 120px;">
-      <div class="container">
-        <a class="navbar-brand" href="/"><span>Swefo♫</span></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ml-auto">
-            <% if user_signed_in? %> <!--ユーザーログイン時-->
-              <li><%= render 'member/search/search', shop: @shop, product: @product%></li> <!--検索機能の部分テンプレート-->
-              <li><%= link_to "当サイトについて", about_path, class: "fas fa-file" %></li>
-              <li><%= link_to "マイページ", user_path(current_user.id), class: "fas fa-id-card" %></li>
-              <li><%= link_to "商品一覧", products_path, class: "fas fa-ice-cream" %></li>
-            
-              <% if current_user.admin_flag %> <!--店舗管理者なら、商品情報新規登録できるように表示-->
-                <li><%= link_to "商品情報投稿", new_product_path, class: "fas fa-edit" %></li>
-              <% end %>
-              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-user-times" %></li>
-              <li><%= link_to "お問い合わせ", new_contact_path, class: "fas fa-desktop" %></li>
-              
-            <% elsif admin_signed_in? %> <!--サイト管理者ログイン時 -->
-              <li><%= render 'member/search/search', shop: @shop, product: @product%></li> <!--検索機能の部分テンプレート-->
-              <li><%= link_to "商品 一覧", admin_products_path, class: "fas fa-ice-cream" %></li>
-              <li><%= link_to "ユーザー 一覧", admin_users_path, class: "fas fa-users" %></li>
-              <li><%= link_to "ジャンル 一覧", admin_genres_path, class: "fas fa-pen-square" %></li>
-              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "fas fa-user-times" %></li>
-              
-            <% else %> <!--メンバーではない場合-->
-              <li><%= link_to "当サイトについて", about_path, class: "fas fa-file" %></li>
-              <li><%= link_to "商品一覧", products_index_path, class: "fas fa-ice-cream" %></li>
-              <li><%= link_to "新規登録", new_user_registration_path, class: "fas fa-user-plus" %></li>
-              <li><%= link_to "ログイン", new_user_session_path, class: "fas fa-user" %></li>
-              <li><%= link_to "お問い合わせ", new_contact_path, class: "fas fa-desktop" %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-
   <body style="background-color: #FFFFAA;">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #9acd32; height: 120px;">
+        <div class="container">
+          <a class="navbar-brand" href="/"><span class="title">Swefo♫</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %> <!--ユーザーログイン時-->
+                <li class="header-name">
+                  ようこそ、<%= current_user.name %>さん！
+                </li>
+                <li><%= render 'member/search/search', shop: @shop, product: @product%></li> <!--検索機能の部分テンプレート-->
+                <li><%= link_to "商品一覧", products_path, class: "fas fa-ice-cream" %></li>
+                <% if current_user.admin_flag %> <!--店舗管理者なら、商品情報新規登録できるように表示-->
+                  <li><%= link_to "商品情報投稿", new_product_path, class: "fas fa-edit" %></li>
+                <% end %>
+                <li><%= link_to "マイページ", user_path(current_user.id), class: "fas fa-id-card" %></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-user-times" %></li>
+              
+              <% elsif admin_signed_in? %> <!--サイト管理者ログイン時 -->
+                <li><%= render 'member/search/search', shop: @shop, product: @product%></li> <!--検索機能の部分テンプレート-->
+                <li><%= link_to "商品 一覧", admin_products_path, class: "fas fa-ice-cream" %></li>
+                <li><%= link_to "ユーザー 一覧", admin_users_path, class: "fas fa-users" %></li>
+                <li><%= link_to "ジャンル 一覧", admin_genres_path, class: "fas fa-pen-square" %></li>
+                <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "fas fa-user-times" %></li>
+              
+              <% else %> <!--メンバーではない場合-->
+                <li><%= link_to "商品一覧", products_index_path, class: "fas fa-ice-cream" %></li>
+                <li><%= link_to "新規登録", new_user_registration_path, class: "fas fa-user-plus" %></li>
+                <li><%= link_to "ログイン", new_user_session_path, class: "fas fa-user" %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
     <main class="mb-auto">
-      <div class="container px-5 px-sm-0">
       <%= yield %>
-      </div>
     </main>
 
-    <footer class="bg-pink text-white pt-5 pb-4">
+    <footer>
       <div class="container">
         <div class="row no-gutters">
-          <div class="col-md-8">
+          <div class="col-md-9">
+            <p>美味しいスイーツ情報をゆっくり手軽に、Swefo♫</p>
+          </div>
+          <div class="col-md-3">
             <ul class="p-0 list-unstyled">
               <li>
-                <a href="" title="About" class="text-white-50">会社概要</a>
+                <%= link_to "当サイトについて", about_path, class:"btn btn-success" %>
               </li>
+              <% if user_signed_in? %> 
               <li>
-                <a href="" title="License informations" class="text-white-50">プライバシーポリシー</a>
+               <%= link_to "お問い合わせ", new_contact_path, class:"btn btn-primary" %>
               </li>
+              <% end %>
             </ul>
           </div>
         </div>

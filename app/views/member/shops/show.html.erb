@@ -15,11 +15,13 @@
   <tr>
     <td>店舗管理者メール</td>
     <td><h4 class="shop-admin-email"></h4><%= @shop.admin_email %></td>
-  </tr>   
+  </tr> 
+  <% if @shop.url.present? %> 
   <tr>
     <td>店舗URL</td>
-    <td><h5 class="shop-url"><%= @shop.url %></h5></td>
+    <td><h5 class="shop-url"><%= link_to 'リンク先', @shop.url %></h5></td>
   </tr>
+  <% end %>
   <tr>
     <td>営業時間</td>
     <td><h5 class="shop-hours"><%= @shop.hours %></h5></td>
