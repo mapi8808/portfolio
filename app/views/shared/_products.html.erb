@@ -21,7 +21,7 @@
                 </tr>
               </table> <!--商品ブロック終了-->
               <p id = "product_<%= product.id %>"> <!--いいね機能-->
-              <%= render '/favorites/favorite', product: product %> <!--いいねのビューの部分テンプレート-->
+              <%= render '/member/favorites/favorite', product: product %> <!--いいねのビューの部分テンプレート-->
               </p> <!--いいね機能終了-->
               <p>コメント件数：<%= product.productcomments.count %></p>
             </div> <!--productsブロック終了-->

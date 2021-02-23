@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :productcomments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :contacts, dependent: :destroy
+  
   
   validates :name, length:  { in: 1..20 }, presence: true, uniqueness: true
   validates :email, presence: true

@@ -1,12 +1,11 @@
 <!--商品に対するコメント機能の部分テンプレート-->
-
 <% product.productcomments.each do |productcomment| %>
   <div class="user-comments">
     <h6 class="name">ユーザー名：<%= productcomment.user.name %></h6>
     <h6>投稿日<%= productcomment.created_at.strftime('%Y/%m/%d  %H:%M:%S') %></h6>
     <h6><%= productcomment.comment %></h6>
       <% if productcomment.user == current_user %>
-        <%= link_to "Destroy", product_productcomment_path(productcomment.product, productcomment), method: :delete, class:"btn btn-danger" %>
+        <%= link_to "Destroy", product_productcomment_path(productcomment.product, productcomment), method: :delete, remote: true, class:"btn btn-danger" %>
       <% end %>
   </div>
 <% end %>

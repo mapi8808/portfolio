@@ -1,0 +1,18 @@
+  <% if product.favorited_by?(current_user) %>
+    <% if user_signed_in? %>
+      <%= link_to product_favorites_path(product), method: :delete, remote: true do %>
+        ♥<%= product.favorites.count %> いいね
+      <% end %>
+    <% else %>
+      <%= product.favorites.count %> いいね
+    <% end %>
+<% else %>
+    <% if user_signed_in? %>
+      <%= link_to product_favorites_path(product), method: :post, remote: true do %>
+        ♡<%= product.favorites.count %> いいね
+      <% end %>
+    <% else %>
+      <%= product.favorites.count %> いいね
+    <% end %>
+  <% end %>
+

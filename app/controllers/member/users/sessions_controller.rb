@@ -24,4 +24,14 @@ class Member::Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  
+  def reject_inactive_user
+    @user = User.find_by(name: params[:user][:name])
+    if @user
+      if @user.valid_password?(params[:user][:password]) && !@user.available
+        redirect_to new_user_session_path
+      end
+    end
+  end
+  
 end

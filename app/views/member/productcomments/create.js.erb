@@ -1,0 +1,4 @@
+$(".comments").html("コメント数: <%= @product.productcomments.count %>");
+$(".comment__table").html("<%= j(render 'productcomments/productcomment', product: @product) %>");
+$("textarea").val("");
+

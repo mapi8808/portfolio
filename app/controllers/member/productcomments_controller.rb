@@ -5,18 +5,20 @@ class Member::ProductcommentsController < ApplicationController
     @product = Product.find(params[:product_id])
     @comment = current_user.productcomments.new(productcomment_params)
     @comment.product_id = @product.id
-    # unless @book_comment.save
-    # render 'error'
-    # end
-    @comment.save
-    redirect_to product_path(@product)
+    unless @comment.save
+    end
+    # app/views/book_comments/create.js.erbを参照
+    
+    # @comment.save
+    # redirect_to product_path(@product)
   end
   
   def destroy
     @product = Product.find(params[:product_id])
     productcomment = Productcomment.find(params[:id])
     productcomment.destroy
-    redirect_to request.referer
+    # redirect_to request.referer
+    # app/views/book_comments/destroy.js.erbを参照する
   end
   
   private

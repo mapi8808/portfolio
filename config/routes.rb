@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   # get 'products/show'
   root to: 'homes#top'
   get 'about' => 'homes#about'
+  get 'unsubscribe/:name' => 'homes#unsubscribe', as: 'confirm_unsubscribe'
+  patch ':id/withdraw/:name' => 'homes#withdraw', as: 'withdraw_user'
+  put 'withdraw/:name' => 'users#withdraw'
   # get 'contact' => 'homes#contact'
   resources :contacts, only: [:new, :create]
   get 'products/index'

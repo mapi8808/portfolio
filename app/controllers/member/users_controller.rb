@@ -13,9 +13,6 @@ class Member::UsersController < ApplicationController
     # 店舗ユーザーが登録した店舗情報
   end
 
-  def quit
-  end
-
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
