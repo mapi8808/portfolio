@@ -3,10 +3,9 @@ class Member::ProductcommentsController < ApplicationController
   
   def create
     @product = Product.find(params[:product_id])
-    @comment = current_user.productcomments.new(productcomment_params)
-    @comment.product_id = @product.id
-    unless @comment.save
-    end
+    comment = current_user.productcomments.new(productcomment_params)
+    comment.product_id = @product.id
+    comment.save
     # app/views/book_comments/create.js.erbを参照
     
     # @comment.save

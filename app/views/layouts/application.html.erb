@@ -63,12 +63,12 @@
           <div class="col-md-3">
             <ul class="p-0 list-unstyled">
               <li>
-                <%= link_to "当サイトについて", about_path, class:"btn btn-success" %>
+                <%= link_to "当サイトについて", about_path %>
               </li>
               <% if user_signed_in? %>
               <li>
-              <%= link_to "お問い合わせ", new_contact_path, class:"btn btn-primary" %>
-              <%= link_to "退会する", confirm_unsubscribe_path('name'), class:"btn btn-primary" %>
+              <%= link_to "お問い合わせ", new_contact_path %>
+              <%= link_to "退会する", confirm_unsubscribe_path('name') %>
               </li>
               <% end %>
             </ul>

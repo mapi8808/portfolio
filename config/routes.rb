@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new, :create]
   get 'products/index'
   
+  
   devise_for :users, controllers: {
   sessions: 'member/users/sessions',
   passwords: 'member/users/passwords',

@@ -10,6 +10,7 @@ class Product < ApplicationRecord
   
   validates :product_name, length:  { in: 1..20 }, presence: true
   validates :image, presence: true
+  validates :amounts, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 1}
   
   
 

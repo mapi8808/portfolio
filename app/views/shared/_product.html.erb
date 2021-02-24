@@ -23,10 +23,12 @@
           <h5>商品説明：<%= product.body %></h5>
           <h5>価格:<%= product.amounts %>円(税抜き)</h5>
           <h6>投稿日<%= product.created_at.strftime('%Y/%m/%d  %H:%M:%S') %></h6>
-          <p id = "product_<%= product.id %>"> <!--いいね機能-->
+          <p id = "product_<%= product.id %>"> <!--いいね機能の非同期通信 $("#product_で反映させた-->
           <%= render '/member/favorites/favorite', product: @product %>
           </p>
-          <p>コメント件数：<%= @product.productcomments.count %></p>
+          <p id = "comment_<%= product.id %>"> <!--js内の$(#comment_)で反映させた-->
+            コメント件数：<%= @product.productcomments.count %>
+          </p>
         </td>
       </tr>
     </table>
@@ -35,7 +37,7 @@
       <h4 class="marker">コメント・感想</h4>
         <div class="row">
           <% if current_user %>
-          <p id = ".comment">
+          <p id = ".comments">
           <div class="col-md-6">
             <%= form_with(model:[@product, @comment], remote: true) do |f| %>
             <%= f.text_area :comment,  rows:'5',placeholder: "", class:'comment' %>
@@ -47,7 +49,7 @@
             
             
           <div class="col-md-6">
-            <div class = "scroll">
+            <div class = "scroll"> <!--js内の$(.scroll)で反映させた-->
             <%= render 'member/productcomments/productcomment', product: @product %>
             </div>
           </div>
