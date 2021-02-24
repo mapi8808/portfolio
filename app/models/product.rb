@@ -8,9 +8,10 @@ class Product < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :productcomments, dependent: :destroy
   
-  validates :product_name, length:  { in: 1..20 }, presence: true
-  validates :image, presence: true
+  validates :product_name, length:  { in: 1..20 }, presence: true #1文字〜20文字まで入力、空白は× 
+  validates :image, presence: true #写真も分かりやすくするため、必ず投稿 
   validates :amounts, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 1}
+  #金額を必ず入力。整数入力で1円以上から
   
   
 

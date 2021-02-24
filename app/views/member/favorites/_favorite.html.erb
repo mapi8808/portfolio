@@ -1,9 +1,10 @@
+  <!--いいねの部分テンプレート-->
   <% if product.favorited_by?(current_user) %>
-    <% if user_signed_in? %>
+    <% if user_signed_in? %> <!--ログインユーザーならいいね機能を表示-->
       <%= link_to product_favorites_path(product), method: :delete, remote: true do %>
         ♥<%= product.favorites.count %> いいね
       <% end %>
-    <% else %>
+    <% else %> <!--そうでないならいいね数のみ表示-->
       <%= product.favorites.count %> いいね
     <% end %>
 <% else %>

@@ -1,5 +1,6 @@
 class Member::ProductcommentsController < ApplicationController
   # メンバー会員（店員）がコメントするためのコントローラ
+  # 非同期通信化してます。
   
   def create
     @product = Product.find(params[:product_id])

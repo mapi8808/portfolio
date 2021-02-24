@@ -1,5 +1,13 @@
 <div class = "row">
   <div class="col-md-6">
+    <div class = 'image'>
+      <h3>美味しいスイーツ情報をゆっくり手軽に</h3>
+      <h5 class="about1">
+        こんなスイーツが食べたい、近くに美味しいスイーツショップはないかな？<br>
+      そんなあなたのために、「スイーツ・インフォメーション」として情報検索のために活用し、スイーツでみなさんに<br>
+      ホット一息ついていただきたいので、スイっと情報を検索できるように
+      名付けました。こんにちは、「swefo♫」です。</h5>
+    </div>
   </div>
 
 
@@ -12,6 +20,7 @@
             <% else %>
               <%= image_tag 'no_image.png' %>
             <% end %>
+            <h4 class="slider" ><%= product.product_name %></h4>
           </li>
       <% end %>
     </ul>

@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   
   def index
     @products = Product.all
-    @shops = Shop.all
+    @shop = Shop.name
   end
 
   def show
