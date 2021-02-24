@@ -1,7 +1,7 @@
-<% if @shop_or_product == "1" %>
+<% if @shop_or_product == "1" %>　<!--店舗を選んだ場合-->
 <h1>"店舗"の検索結果です</h1>
   <div class='row'>
-    <% @shops.each do |shop| %>
+    <% @shops.each do |shop| %> <!--店舗登録情報の結果反映-->
       <div class="col-md-6">
         <table class="table">
           <!--<div class="search"> -->
@@ -14,14 +14,14 @@
           <!--</div>-->
         </table>
       </div>
-    <% end %>
+    <% end %> <!--店舗登録情報終了-->
   </div>    
 
-<% else @shop_or_product == "2" %>
+<% else @shop_or_product == "2" %> <!--商品を選んだ場合-->
 <h2>"商品"の検索結果です</h2>
   <div class='row'>
-    <% @products.each do |product| %>
-    <% shop = product.shop %>
+    <% @products.each do |product| %> <!--商品登録情報の結果反映-->
+    <% shop = product.shop %> <!--shopは商品を登録した店舗-->
       <div class="col-md-6">
         <div class="search"> 
           <table class="table">
@@ -43,6 +43,6 @@
           </table>
         </div>
       </div>
-    <% end %>
+    <% end %> <!--商品登録情報終了-->
   </div>
 <% end %>

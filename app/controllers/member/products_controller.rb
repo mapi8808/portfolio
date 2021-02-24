@@ -1,5 +1,6 @@
 class Member::ProductsController < ApplicationController
   # メンバー会員の内容
+  before_action :authenticate_user!,except: [:index]
 
   def index
     @products = Product.page(params[:page]).reverse_order

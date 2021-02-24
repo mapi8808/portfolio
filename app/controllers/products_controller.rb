@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
   # メンバーでなくても閲覧可能の商品詳細
-  before_action :authenticate_user!,except: [:index]
   
   def index
     @products = Product.all

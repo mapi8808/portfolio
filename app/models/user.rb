@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :contacts, dependent: :destroy
   
   
-  validates :name, length:  { in: 1..20 }, presence: true, uniqueness: true
+  validates :name, length:  { in: 1..20 }, presence: true, uniqueness: true # ユーザーネームを1文字以上20文字以下で入力
   validates :email, presence: true
   
   # 物理削除の代わりにユーザーの`deleted_at`をタイムスタンプで更新

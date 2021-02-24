@@ -21,9 +21,6 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %> <!--ユーザーログイン時-->
-                <li class="header-name">
-                  ようこそ、<%= current_user.name %>さん！
-                </li>
                 <li><%= render 'member/search/search', shop: @shop, product: @product%></li> <!--検索機能の部分テンプレート-->
                 <li><%= link_to "商品一覧", products_path, class: "fas fa-ice-cream" %></li>
                 <% if current_user.admin_flag %> <!--店舗管理者なら、商品情報新規登録できるように表示-->

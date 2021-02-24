@@ -1,12 +1,23 @@
 <div class = "row">
   <div class="col-md-6">
-    <div class = 'image'>
-      <h3>美味しいスイーツ情報をゆっくり手軽に</h3>
+    <h3 class='marker'>ようこそ、Swefo♫へ</h3>
       <h5 class="about1">
-        こんなスイーツが食べたい、近くに美味しいスイーツショップはないかな？<br>
-      そんなあなたのために、「スイーツ・インフォメーション」として情報検索のために活用し、スイーツでみなさんに<br>
-      ホット一息ついていただきたいので、スイっと情報を検索できるように
-      名付けました。こんにちは、「swefo♫」です。</h5>
+        美味しいスイーツ情報をゆっくり手軽に、さくっと検索。<br>
+        みなさんお気軽にどうぞ♬
+      </h5>
+    
+    <h3 class='marker'>商品更新情報</h3>
+    <div class='new'>
+      <% @products.last(5).each do |product| %> <!--最終投稿分を5つ表示させてます。-->
+        <% shop = product.shop %> 
+          <tr>
+            <td>
+              <h6 class="shop-name">店舗名：<%= shop.shop_name %>様が商品情報を投稿しました。</h6>
+              <h6 class="product-name">商品名：<%= link_to product.product_name, product_path(product) %></h6>
+              <h6>投稿日<%= product.created_at.strftime('%Y/%m/%d  %H:%M:%S') %></h6>
+            </td>
+          </tr>
+      <% end %>
     </div>
   </div>
 
@@ -20,7 +31,6 @@
             <% else %>
               <%= image_tag 'no_image.png' %>
             <% end %>
-            <h4 class="slider" ><%= product.product_name %></h4>
           </li>
       <% end %>
     </ul>
