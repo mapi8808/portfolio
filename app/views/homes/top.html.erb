@@ -13,7 +13,14 @@
           <tr>
             <td>
               <h6 class="shop-name">店舗名：<%= shop.shop_name %>様が商品情報を投稿しました。</h6>
-              <h6 class="product-name">商品名：<%= link_to product.product_name, product_path(product) %></h6>
+              
+              <% if user_signed_in? %> <!--ユーザーがログイン状態なら-->
+                <h6 class="product-name">商品名：<%= link_to product.product_name, product_path(product) %></h6>
+              <% elsif admin_signed_in? %> <!--管理者ユーザーがログイン状態なら-->
+                <h6 class="product-name">商品名：<%= link_to product.product_name, admin_product_path(product) %></h6>
+              <% else %> <!--未ログイン状態なら-->
+                <h6 class="product-name">商品名：<%= link_to product.product_name, product_path(product) %></h6>
+              <% end %>
               <h6>投稿日<%= product.created_at.strftime('%Y/%m/%d  %H:%M:%S') %></h6>
             </td>
           </tr>
