@@ -4,6 +4,7 @@ class HomesController < ApplicationController
     @products = Product.all
     @shops = Shop.all
   end
+  
   # サイト概要・作成経緯
   def about
   end

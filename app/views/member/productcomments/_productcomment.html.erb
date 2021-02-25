@@ -4,7 +4,10 @@
     <h6 class="name">ユーザー名：<%= productcomment.user.name %></h6>
     <h6>投稿日<%= productcomment.created_at.strftime('%Y/%m/%d  %H:%M:%S') %></h6>
     <h6><%= productcomment.comment %></h6>
-      <% if productcomment.user == current_user %>
+      <% if productcomment.user == current_user %>　<!--投稿ユーザーとログインユーザーが一緒なら、削除可能-->
+        <%= link_to "Destroy", product_productcomment_path(productcomment.product, productcomment), method: :delete, remote: true, class:"btn btn-danger" %>
+      <% end %>
+      <% if admin_signed_in? %> <!--管理者がログインしてたら削除可能-->
         <%= link_to "Destroy", product_productcomment_path(productcomment.product, productcomment), method: :delete, remote: true, class:"btn btn-danger" %>
       <% end %>
   </div>

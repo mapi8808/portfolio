@@ -10,6 +10,7 @@ class Shop < ApplicationRecord
   validates :admin_email, presence: true
   validates :shop_name, length:  { in: 1..20 }, presence: true
   
+  # 検索で店舗を選んだ時、完全一致か部分一致で検索可能
   def Shop.search(search, how_search, shop_or_product)
     if shop_or_product == "1"
       if how_search == "1"

@@ -1,6 +1,8 @@
 class Member::UsersController < ApplicationController
   # メンバー会員（店員も）の内容
-
+  # 未ログインで、詳細以外の画面にアクセスするとログイン画面へ
+  before_action :authenticate_user!,except: [:show]
+  
   def show
     @user = User.find(params[:id])
     @shop = @user.shop
@@ -9,8 +11,12 @@ class Member::UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    @shop = @user.shop
-    # 店舗ユーザーが登録した店舗情報
+    @shop = @user.shop # 店舗ユーザーが登録した店舗情報
+    if @user.id == current_user # ログインユーザーと登録したユーザーが同じ人以外、直接URLにとんでも、home画面にいくように。
+      render :edit
+    else
+      redirect_to root_path
+    end
   end
 
   def update
@@ -22,9 +28,6 @@ class Member::UsersController < ApplicationController
       @users = User.find(params[:id])
       render :edit
     end
-  end
-
-  def goodbye
   end
 
   private

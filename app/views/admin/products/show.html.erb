@@ -18,7 +18,9 @@
           <h4>商品名：<%= @product.product_name %></h4>
           <h5>商品説明：<%= @product.body %></h5>
           <h5>価格:<%= @product.amounts %>円(税抜き)</h5>
+          <h5>ジャンル:<%= @genre.name %></h5>
           <h6>投稿日<%= @product.created_at.strftime('%Y/%m/%d  %H:%M:%S') %></h6>
+          <h6>最終更新日：<%= @product.updated_at.strftime('%Y/%m/%d  %H:%M:%S') %></h6>
           <p><%= @product.favorites.count %> いいね</p>
           <p>コメント件数：<%= @product.productcomments.count %></p>
         </td>

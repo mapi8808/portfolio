@@ -1,3 +1,3 @@
 <h2 class="marker">商品一覧</h2>
-  <%= render 'shared/products', shop: @shop, products: @products%> <!--shared/productsにて商品一覧を共有化-->
+  <%= render 'shared/products', shop: @shop, products: @products, genres: @genres %> <!--shared/productsにて商品一覧を共有化-->
 <%= link_to 'HOME画面に戻る', root_path, class:"btn btn-secondary" %> <!--top画面へ-->

@@ -4,11 +4,13 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @shop = Shop.name
+    @genres = Genre.all
   end
 
   def show
     @product = Product.find(params[:id])
     @shop = @product.shop
+    @genre = @product.genre
   end
   
    private

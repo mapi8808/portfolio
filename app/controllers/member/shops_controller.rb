@@ -1,5 +1,6 @@
 class Member::ShopsController < ApplicationController
   # メンバー会員（店舗情報）の内容
+  # 未ログインで、shop関連画面にアクセスするとログイン画面へ
   before_action :authenticate_user!
 
   def show
@@ -9,10 +10,20 @@ class Member::ShopsController < ApplicationController
 
   def edit
     @shop = Shop.find(params[:id])
+    if @shop.user == current_user  # ログインユーザーと店舗登録したユーザーが同じ人以外、直接URLにとんでも、home画面にいくように。
+      render :edit
+    else
+      redirect_to root_path
+    end
   end
 
   def new
     @shop = Shop.new
+    if current_user # ログインユーザー以外、直接URLにとんでも、home画面にいくように。 
+      render :new
+    else
+      redirect_to root_path
+    end
   end
 
   def create

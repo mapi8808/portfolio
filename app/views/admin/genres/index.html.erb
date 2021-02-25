@@ -15,11 +15,11 @@
 <!--入力ミス発生時のメッセージ反映-->
 <% if @genre.errors.any? %>
   <h4><%= @genre.errors.count %>件のエラーが発生しました</h4>
-  <ul>
-    <% @genre.errors.full_messages.each do |message| %>
-  <li><%= message %></li>
-    <% end %>
-  </ul>
+    <ul>
+      <% @genre.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+      <% end %>
+    </ul>
 <% end %>
 
 <%= form_with model:@genre, url: admin_genres_path do |f| %>
@@ -28,7 +28,7 @@
       <tr>
         <!--商品ジャンル作成-->
           <td><h4>ジャンル名</h4></td>
-          <td><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"name"%></td>
+          <td><%= f.text_field :name, autofocus: true, id:"inputName"%></td>
           <td><%= f.submit "新規登録" %></td>
       </tr>
     </thead>

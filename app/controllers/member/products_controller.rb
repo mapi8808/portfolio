@@ -1,24 +1,37 @@
 class Member::ProductsController < ApplicationController
   # メンバー会員の内容
-  before_action :authenticate_user!,except: [:index]
+  # 未ログインで、一覧と詳細以外の画面にアクセスするとログイン画面へ
+  before_action :authenticate_user!,except: [:index, :show]
 
   def index
     @products = Product.page(params[:page]).reverse_order
-    @shops = Shop.all
+    @shop = Shop.name
+    @genres = Genre.all
   end
 
   def show
     @product = Product.find(params[:id])
     @shop = @product.shop
     @comment = Productcomment.new
+    @genre = @product.genre
   end
 
-  def edit
+  def edit 
     @product = Product.find(params[:id])
+    if @product.user == current_user # ログインユーザーと登録したユーザーが同じ人以外、直接URLにとんでも、home画面にいくように。 
+      render :edit
+    else
+      redirect_to root_path
+    end
   end
 
   def new
     @product = Product.new
+    if current_user # ログインユーザー以外、直接URLにとんでも、home画面にいくように。 
+      render :new
+    else
+      redirect_to root_path
+    end
   end
 
   def create

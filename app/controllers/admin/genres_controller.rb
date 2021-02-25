@@ -1,4 +1,6 @@
 class Admin::GenresController < ApplicationController
+  # 未ログインで、管理者の画面にアクセスするとログイン画面へ
+  before_action :authenticate_admin!
 
   def index
     @genres = Genre.all
@@ -8,6 +10,7 @@ class Admin::GenresController < ApplicationController
   def edit
     @genre = Genre.find(params[:id])
   end
+
 
   def create
     @genre = Genre.new(genre_params)
@@ -30,12 +33,6 @@ class Admin::GenresController < ApplicationController
       render ("admin/genres/edit")
     end
   end
-  
-  # def destroy
-    # genre = Genre.find(params[:id])
-    # genre.destroy
-    # redirect_to admin_genres_path
-  # end
 
   private
   def genre_params

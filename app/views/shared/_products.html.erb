@@ -4,6 +4,7 @@
     <div class="row"> <!--1つの商品をみやすくブロック化-->
       <% products.each do |product| %>
         <% shop = product.shop %> <!--商品を投稿した店舗を表示させるため-->
+        <% genre = product.genre %>
           <div class="col-md-6"> <!--colブロック開始-->
             <div class="products">
               <table> <!--商品のブロック記載内容-->
@@ -16,7 +17,9 @@
                     <h5 class="product-name">商品名：<%= link_to product.product_name, product_path(product) %></h5>
                     <h6 class="product-body">商品説明：<%= product.body %></h6>
                     <h5 class="product-price">価格：<%= product.amounts %>円(税抜き)</h5>
-                    <h6>投稿日<%= product.created_at.strftime('%Y/%m/%d  %H:%M:%S') %></h6>
+                    <h5 class="product-genre">ジャンル：<%= genre.name %></h5>
+                    <h6>投稿日：<%= product.created_at.strftime('%Y/%m/%d  %H:%M:%S') %></h6>
+                    <h6>最終更新日：<%= product.updated_at.strftime('%Y/%m/%d  %H:%M:%S') %></h6>
                   </td>
                 </tr>
               </table> <!--商品ブロック終了-->
