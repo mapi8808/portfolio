@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   patch ':id/withdraw/:name' => 'homes#withdraw', as: 'withdraw_user'
   put 'withdraw/:name' => 'users#withdraw'
   # get 'contact' => 'homes#contact'
-  resources :contacts, only: [:new, :create]
+  # get 'contacts' => 'contacts#index'
+  # post 'contacts/confirm' 
+  
   get 'products/index'
   
   
@@ -24,7 +26,7 @@ Rails.application.routes.draw do
   
   scope module: :member do
     get 'search/search'
-    resources :users, only: [:show, :edit, :quit, :update, :goodbye]
+    resources :users, only: [:show, :edit, :update]
     resources :shops, only: [:show, :edit, :new, :create, :update, :destroy]
     resources :products do
       resource :favorites, only: [:create, :destroy]

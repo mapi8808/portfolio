@@ -1,24 +1,32 @@
 class ContactsController < ApplicationController
   
-  def new
+  def index
     @contact = Contact.new
   end
-  
-  def create
+   
+  def confirm
     @contact = Contact.new(contact_params)
-    if @contact.save
-      # お問い合わせ内容をデータベースに保存した後、メール送信を行う。
-      ContactMailor.contact_mail(@contact).deliver
-      redirect_to new_contact
+    if @contact.valid?
+      render :action => 'confirm'
     else
-      redirect_to new_contact
+       render :action => 'index'
     end
   end
-  
-   private
 
+  def done
+    @contact = Contact.new(contact_params)
+    if params[:back]
+      render :action => 'index'
+    else
+      ContactMailer.send_mail(@contact).deliver_now
+      render :action => 'done'
+    end
+  end
+
+  private
+  
   def contact_params
-    params.require(:contact).permit(:name, :message)
+    params.require(:contact).permit(:name, :message, :user_id)
   end
   
 end

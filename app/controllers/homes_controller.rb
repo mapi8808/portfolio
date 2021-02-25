@@ -15,7 +15,7 @@ class HomesController < ApplicationController
 
   def withdraw
     @user = current_user
-    @user.update(available: false)
+    @user.update(deleted_at: Time.now)
     reset_session
     redirect_to root_path
   end
