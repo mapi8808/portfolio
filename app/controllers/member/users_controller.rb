@@ -12,7 +12,7 @@ class Member::UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @shop = @user.shop # 店舗ユーザーが登録した店舗情報
-    if @user.id == current_user # ログインユーザーと登録したユーザーが同じ人以外、直接URLにとんでも、home画面にいくように。
+    if current_user.id # 登録したログインユーザーが同じ人以外、直接URLにとんでも、home画面にいくように。
       render :edit
     else
       redirect_to root_path
