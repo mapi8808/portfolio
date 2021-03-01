@@ -9,7 +9,11 @@
         </td>
         <td>
           <h4>店舗名：<%= shop.shop_name %></h4>
+          <% if admin_signed_in? %>
+          <%= link_to '店舗詳細へ', admin_shop_path(shop.id), class:"show_#{shop.id}", class:"btn btn-success" %>
+          <% else %>
           <%= link_to '店舗詳細へ', shop_path(shop.id), class:"show_#{shop.id}", class:"btn btn-success" %>
+          <% end %>
           
             <% if current_user == shop.user %>  <!--ログインユーザーが店舗ユーザーと同じなら、編集と削除ボタンを表示-->
               <%= link_to "商品情報編集", edit_product_path(product.id), class:"btn btn-primary" %>
