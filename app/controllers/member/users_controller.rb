@@ -2,7 +2,7 @@ class Member::UsersController < ApplicationController
   # メンバー会員（店員も）の内容
   # 未ログインで、詳細以外の画面にアクセスするとログイン画面へ
   before_action :authenticate_user!,except: [:show]
-  
+
   def show
     @user = User.find(params[:id])
     @shop = @user.shop
