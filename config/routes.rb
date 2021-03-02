@@ -5,9 +5,8 @@ Rails.application.routes.draw do
   get 'unsubscribe/:name' => 'homes#unsubscribe', as: 'confirm_unsubscribe'
   patch ':id/withdraw/:name' => 'homes#withdraw', as: 'withdraw_user'
   put 'withdraw/:name' => 'users#withdraw'
-  # get 'contact' => 'homes#contact'
-  # get 'contacts' => 'contacts#index'
-  # post 'contacts/confirm' 
+  get 'contacts' => 'contacts#index'
+  post 'contacts/confirm' 
   
   get 'products/index'
   
