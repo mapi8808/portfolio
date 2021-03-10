@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-9">
+      <p>美味しいスイーツ情報をゆっくり手軽に、Swefo♫</p>
+    </div>
+      <div class="col-md-3">
+        <ul class="p-0 list-unstyled">
+          <li>
+            <%= link_to "当サイトについて", about_path %>
+          </li>
+          <% if user_signed_in? %>
+          <li>
+            <%= link_to "退会する", confirm_unsubscribe_path('name') %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+  </div>
+</div>
