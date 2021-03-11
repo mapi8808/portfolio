@@ -16,6 +16,8 @@ class ApplicationController < ActionController::Base
       root_path
     elsif current_user.admin_flag == @user.shop.present?
       root_path
+    elsif current_user.admin_flag == false
+      root_path
     else
       new_shop_path # ログイン後に遷移するpathを設定
     end
