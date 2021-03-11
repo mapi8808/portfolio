@@ -8,4 +8,13 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :admin_flag])
   end
+
+  def after_sign_in_path_for(resource)
+    if current_user.admin_flag || current_user.shop.present?
+    # if @user.shop.present? == false
+    # if current_user.shop.present? == false
+    new_shop_path # ログイン後に遷移するpathを設定
+    end
+  end
+
 end
