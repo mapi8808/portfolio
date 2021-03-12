@@ -10,13 +10,13 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if admin_signed_in?
+    if admin_signed_in?  # 管理者がログイン → TOPページへ
       root_path
-    elsif current_user.admin_flag == @user.shop.present?
+    elsif current_user.admin_flag == @user.shop.present? # ログインユーザーが店舗管理者にチェックを入れて、店舗情報登録ずみ → TOPページへ
       root_path
-    elsif current_user.admin_flag == true
+    elsif current_user.admin_flag == true # ユーザーが店舗管理者にチェックを入れている（店舗情報未登録状態） → 店舗情報登録画面へ
       new_shop_path  # ログイン後に遷移するpathを設定
-    else current_user.admin_flag == false
+    else current_user.admin_flag == false # 店舗管理者にチェック入れてない一般ユーザー → TOPページへ
       root_path
     end
   end

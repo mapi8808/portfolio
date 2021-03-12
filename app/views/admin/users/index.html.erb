@@ -7,8 +7,10 @@
         <div class = "users-show" >
           <h5 class="user-name">ユーザー名：<%= link_to user.name, admin_user_path(user)  %></h5>
           <h5 class="email">メールアドレス：<%= user.email %></h5>
-          <h6 class="admin-flag">店舗管理者<%= user.admin_flag %></h6>
-  <!--新規登録で店舗管理者（admin_flag）にチェックを入れていたら店舗情報表示-->
+          <h6 class="admin-flag">店舗管理者(チェック)：<%= user.admin_flag %></h6>
+          <!--新規登録で店舗管理者（admin_flag）にチェックを入れていたら店舗情報表示-->
+          <h6 class="available">ユーザー状態：<%= user.available %></h6>
+           <!--新規登録で店舗管理者（admin_flag）にチェックを入れていたら店舗情報表示-->
         </div>
       </div>
     <% end %>
