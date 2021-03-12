@@ -11,15 +11,13 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if admin_signed_in?
-    # if @user.shop.present? == false
-    # if current_user.shop.present? == false
       root_path
     elsif current_user.admin_flag == @user.shop.present?
       root_path
-    elsif current_user.admin_flag == false
+    elsif current_user.admin_flag == true
+      new_shop_path  # ログイン後に遷移するpathを設定
+    else current_user.admin_flag == false
       root_path
-    else
-      new_shop_path # ログイン後に遷移するpathを設定
     end
   end
 
