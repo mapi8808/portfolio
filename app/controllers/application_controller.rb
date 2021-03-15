@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
       root_path
     elsif current_user.admin_flag == true # ユーザーが店舗管理者にチェックを入れている（店舗情報未登録状態） → 店舗情報登録画面へ
       new_shop_path  # ログイン後に遷移するpathを設定
-    else current_user.admin_flag == false # 店舗管理者にチェック入れてない一般ユーザー → TOPページへ
+    else  # 店舗管理者にチェック入れてない一般ユーザー → TOPページへ
       root_path
     end
   end
