@@ -9,4 +9,5 @@ class Member::SearchController < ApplicationController
       #商品を選んだ時、商品のパラメーター内容を探す。
     end
   end
+  
 end

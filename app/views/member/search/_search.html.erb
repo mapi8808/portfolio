@@ -6,11 +6,7 @@
         <%= f.text_field :search %>
       </td>
       <td>
-        <% if admin_signed_in? %>
-          <%= select_tag(:option, options_for_select([["店舗", "1"],["商品","2"],["ユーザー","3"]]))%>
-        <% else %>
-          <%= select_tag(:option, options_for_select([["店舗", "1"],["商品","2"]]))%>
-        <% end %>
+        <%= select_tag(:option, options_for_select([["店舗", "1"],["商品","2"]]))%>
         <%= select_tag(:choice, options_for_select([["完全一致検索", "1" ],["部分一致検索", "2" ]])) %>
         <%= f.submit '検索', name: nil %>
       </td>
