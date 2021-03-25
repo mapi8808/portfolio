@@ -7,23 +7,23 @@ Rails.application.routes.draw do
   put 'withdraw/:name' => 'users#withdraw'
   # get 'contact' => 'homes#contact'
   # get 'contacts' => 'contacts#index'
-  # post 'contacts/confirm' 
-  
+  # post 'contacts/confirm'
+
   get 'products/index'
-  
-  
+
+
   devise_for :users, controllers: {
   sessions: 'member/users/sessions',
   passwords: 'member/users/passwords',
   registrations: 'member/users/registrations',
   }
- 
+
   devise_for :admins, controllers: {
   sessions: 'admins/sessions',
   passwords: 'admins/passwords',
   registrations: 'admins/registrations',
   }
-  
+
   scope module: :member do
     get 'search/search'
     resources :users, only: [:show, :edit, :update]
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
       resources :productcomments, only: [:create, :destroy]
     end
   end
-  
+
   namespace :admin do
     resources :users, only: [:index, :show, :edit, :destroy]
     resources :products, only: [:index, :show, :destroy]
